@@ -8,7 +8,6 @@ Model
 - [x] refactor Entity inheritance
 - [x] implement Entity associations
 - [ ] implement Repositories
-- [ ] implement Service Layer 
 - [ ] test CRUD Operations
 
 Controller
@@ -29,7 +28,6 @@ Quizzl
 │   │   │               ├── error
 │   │   │               ├── model
 │   │   │               ├── repository
-│   │   │               ├── service
 │   │   │               ├── util
 │   │   │               ├── BootifulFxApplication.java
 │   │   │               ├── JavafxApplication.java

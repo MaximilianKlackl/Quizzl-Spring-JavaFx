@@ -21,6 +21,7 @@ public class CommandLineUtil implements CommandLineRunner {
         Flashcard f1 = new Flashcard();
 
         flashcardRepository.save(f1);
+        flashcardRepository.findAll().forEach(System.out::println);
 
     }
 }

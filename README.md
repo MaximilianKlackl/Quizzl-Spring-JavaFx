@@ -30,7 +30,6 @@ Quizzl
 │   │   │               ├── model
 │   │   │               ├── repository
 │   │   │               ├── service
-│   │   │               ├── error
 │   │   │               ├── util
 │   │   │               ├── BootifulFxApplication.java
 │   │   │               ├── JavafxApplication.java

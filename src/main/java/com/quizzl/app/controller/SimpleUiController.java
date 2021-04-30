@@ -1,29 +1,28 @@
 package com.quizzl.app.controller;
 
+import com.quizzl.app.repository.FlashcardRepository;
 import javafx.application.HostServices;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SimpleUiController {
 
-    private final HostServices hostServices;
+    private final FlashcardRepository flashcardRepository;
 
     @FXML
     public Label label;
 
-    @FXML
-    public Button button;
-
-
-    public SimpleUiController(HostServices hostServices) {
-        this.hostServices = hostServices;
+    @Autowired
+    public SimpleUiController(FlashcardRepository flashcardRepository) {
+        this.flashcardRepository = flashcardRepository;
     }
 
     @FXML
     public void initialize () {
-        this.button.setOnAction(actionEvent -> this.label.setText(this.hostServices.getDocumentBase()));
+        this.label.setText(String.valueOf(flashcardRepository.getOne(1L).getId()));
     }
 }

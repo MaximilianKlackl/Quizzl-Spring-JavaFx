@@ -1,12 +1,12 @@
 package com.quizzl.app.controller;
 
+import com.quizzl.app.model.FlashcardStaple;
 import com.quizzl.app.repository.FlashcardRepository;
-import javafx.application.HostServices;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class SimpleUiController {
@@ -23,6 +23,6 @@ public class SimpleUiController {
 
     @FXML
     public void initialize () {
-        this.label.setText(String.valueOf(flashcardRepository.getOne(1L).getId()));
+        this.label.setText(String.valueOf(flashcardRepository.getOne(1L).getFront()));
     }
 }

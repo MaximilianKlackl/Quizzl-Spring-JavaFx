@@ -21,7 +21,7 @@ public class Flashcard extends Card{
     @JoinColumn(name = "cardlist_id")
     private FlashcardStaple flashcardList;
 
-    public Flashcard(String back, String front){
+    public Flashcard(String front, String back){
         super(back, front);
     }
 

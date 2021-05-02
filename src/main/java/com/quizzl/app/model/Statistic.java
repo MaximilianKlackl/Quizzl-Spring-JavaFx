@@ -30,4 +30,20 @@ public class Statistic extends BaseEntity {
 
     private int timeSpend; // in minutes
     private float learnProgress; // in percent
+
+    public Statistic(int timeSpend, float learnProgress){
+        this.timeSpend = timeSpend;
+        this.learnProgress = learnProgress;
+    }
+
+    public Statistic(int timeSpend, float learnProgress, List<Card> wrongCards, CardList cardList){
+        this.timeSpend = timeSpend;
+        this.cardList = cardList;
+        this.learnProgress = learnProgress;
+        this.wrongCards = wrongCards;
+    }
+
+    public Statistic(){
+
+    }
 }

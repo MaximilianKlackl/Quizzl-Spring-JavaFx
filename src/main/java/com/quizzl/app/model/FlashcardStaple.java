@@ -9,6 +9,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -29,6 +30,7 @@ public class FlashcardStaple extends CardList {
 
     public FlashcardStaple(String topic, String name, String description){
         super(name, description);
+        flashcardList = new ArrayList<>();
         this.topic = topic;
     }
 

@@ -1,16 +1,19 @@
 # Quizzl-Spring-JavaFx
 
+## Technologies
+
+- JavaFx
+- Spring Boot
+- SQLite
+
 ## To-Do's
 
-Model
 - [x] create Folder Structure
 - [x] create Entities + attributes
 - [x] refactor Entity inheritance
 - [x] implement Entity associations
-- [ ] implement Repositories
+- [x] implement Repositories
 - [ ] test CRUD Operations
-
-Controller
 - [ ] create CSV Utility Class
 
 ## Folder Structure

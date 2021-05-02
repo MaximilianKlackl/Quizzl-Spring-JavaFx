@@ -34,6 +34,12 @@ public class FlashcardStaple extends CardList {
         this.topic = topic;
     }
 
+    public FlashcardStaple(String topic, String name, String description, List<Flashcard> flashcardList, Statistic statistic){
+        super(name, description, statistic);
+        this.flashcardList = flashcardList;
+        this.topic = topic;
+    }
+
     public FlashcardStaple() {
 
     }

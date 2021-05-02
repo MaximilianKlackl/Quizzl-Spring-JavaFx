@@ -36,28 +36,22 @@ public class CommandLineUtil implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Flashcard f1 = new Flashcard("front1", "back1");
-        Flashcard f2 = new Flashcard("front2", "back2");
-        Flashcard f3 = new Flashcard("front3", "back3");
-
         List<Flashcard> flashcardList = new ArrayList<>();
-        flashcardList.add(f1);
-        flashcardList.add(f2);
-        flashcardList.add(f3);
+        FlashcardStaple flashcardStaple = new FlashcardStaple("Test", "Test", "Test");
+        Statistic statistic = new Statistic(20, 0.2f);
 
-        FlashcardStaple fs1 = new FlashcardStaple("Test1", "Test1", "Test1");
-        fs1.setFlashcardList(flashcardList);
+        flashcardStaple.setStatistic(statistic);
 
-        Statistic statistic = new Statistic(20, 0.8f, (List<Card>)(List<?>) flashcardList, fs1);
-        fs1.setStatistic(statistic);
-
-        for (Flashcard f: flashcardList) {
-            f.setFlashcardList(fs1);
-            f.setStatistic(statistic);
-            flashcardRepository.save(f);
+        for(int i = 0; i < 20; i++){
+            Flashcard flashcard = new Flashcard("front" + i, "back" + i );
+            flashcard.setFlashcardList(flashcardStaple);
+            flashcard.setStatistic(statistic);
+            flashcardList.add(flashcard);
         }
 
+        flashcardRepository.saveAll(flashcardList);
         statisticRepository.save(statistic);
-        flashcardStapleRepository.save(fs1);
+        flashcardStapleRepository.save(flashcardStaple);
+
     }
 }

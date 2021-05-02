@@ -31,6 +31,13 @@ public class Card extends BaseEntity {
         this.back = back;
     }
 
+    public Card(String front, String back, Statistic statistic){
+
+        this.front = front;
+        this.back = back;
+        this.statistic = statistic;
+    }
+
     public Card() {
 
     }

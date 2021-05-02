@@ -30,6 +30,12 @@ public class CardList extends BaseEntity{
         this.description = description;
     }
 
+    public CardList(String name, String description ,Statistic statistic){
+        this.name = name;
+        this.statistic = statistic;
+        this.description = description;
+    }
+
     public CardList() {
 
     }

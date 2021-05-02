@@ -25,6 +25,11 @@ public class Flashcard extends Card{
         super(back, front);
     }
 
+    public Flashcard(String front, String back, Statistic statistic, FlashcardStaple flashcardList){
+        super(back, front, statistic);
+        this.flashcardList = flashcardList;
+    }
+
     public Flashcard(){
 
     }

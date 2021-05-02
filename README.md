@@ -1,5 +1,17 @@
 # Quizzl-Spring-JavaFx
 
+## Descripton
+
+Quizzl is a Single User Desktop Application with a local SQLite Database designed for Learning with Flashcards. 
+
+### Features 
+
+- create and manage Flashcard
+- export/ import Flashcards to CSV Format
+- create Learn-Sessions 
+- different settings for Learn-Sessions
+- view Statistics
+
 ## Technologies
 
 - JavaFx

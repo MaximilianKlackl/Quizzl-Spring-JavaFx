@@ -12,12 +12,6 @@ Quizzl is a Single User Desktop Application with a local SQLite Database designe
 - different settings for Learn-Sessions
 - view Statistics
 
-## Technologies
-
-- JavaFx
-- Spring Boot
-- SQLite
-
 ## To-Do's
 
 - [x] create Folder Structure
@@ -27,6 +21,12 @@ Quizzl is a Single User Desktop Application with a local SQLite Database designe
 - [x] implement Repositories
 - [ ] test CRUD Operations
 - [ ] create CSV Utility Class
+
+## Technologies
+
+- JavaFx
+- Spring Boot
+- SQLite
 
 ## Folder Structure
 ```

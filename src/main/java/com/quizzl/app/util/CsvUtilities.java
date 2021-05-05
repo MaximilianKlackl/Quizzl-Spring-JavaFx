@@ -18,8 +18,8 @@ public class CsvUtilities {
 
     @Autowired
     CsvUtilities(FlashcardStapleRepository flashcardStapleRepository, VocabListRepository vocabListRepository){
-        flashcardStapleRepository = flashcardStapleRepository;
-        vocabListRepository = vocabListRepository;
+        this.flashcardStapleRepository = flashcardStapleRepository;
+        this.vocabListRepository = vocabListRepository;
 
     }
 

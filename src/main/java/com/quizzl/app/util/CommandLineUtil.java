@@ -1,6 +1,5 @@
 package com.quizzl.app.util;
 
-import com.quizzl.app.model.Card;
 import com.quizzl.app.model.Flashcard;
 import com.quizzl.app.model.FlashcardStaple;
 import com.quizzl.app.model.Statistic;

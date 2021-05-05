@@ -1,6 +1,5 @@
 package com.quizzl.app.controller;
 
-import com.quizzl.app.model.FlashcardStaple;
 import com.quizzl.app.repository.FlashcardRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

@@ -13,8 +13,10 @@ import java.util.List;
 @Component
 public class CsvUtilities {
 
-    private FlashcardStapleRepository flashcardStapleRepository;
-    private VocabListRepository vocabListRepository;
+    // test comment
+
+    private final FlashcardStapleRepository flashcardStapleRepository;
+    private final VocabListRepository vocabListRepository;
 
     @Autowired
     CsvUtilities(FlashcardStapleRepository flashcardStapleRepository, VocabListRepository vocabListRepository){

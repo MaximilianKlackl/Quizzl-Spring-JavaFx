@@ -15,8 +15,8 @@ public class CsvUtilities {
 
     // test comment
 
-    private FlashcardStapleRepository flashcardStapleRepository;
-    private VocabListRepository vocabListRepository;
+    private final FlashcardStapleRepository flashcardStapleRepository;
+    private final VocabListRepository vocabListRepository;
 
     @Autowired
     CsvUtilities(FlashcardStapleRepository flashcardStapleRepository, VocabListRepository vocabListRepository){

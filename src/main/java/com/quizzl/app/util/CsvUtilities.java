@@ -1,6 +1,6 @@
 package com.quizzl.app.util;
 
-import com.quizzl.app.model.Card;
+import com.quizzl.app.model.*;
 import com.quizzl.app.repository.FlashcardStapleRepository;
 import com.quizzl.app.repository.VocabListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,12 +34,16 @@ public class CsvUtilities {
         // csv to cards here
 
         if(isFlashcard){
-            // flashcardStapleRepository.save();
+            FlashcardStaple flashcardStaple = new FlashcardStaple("Default", "Default", "Default");
+            flashcardStaple.setFlashcardList((List<Flashcard>)(List<?>)cards);
+            flashcardStapleRepository.save(flashcardStaple);
 
         }
 
         if(!isFlashcard){
-            // vocabListRepository.save();
+            VocabList vocabList = new VocabList("Default", "Default", "Default");
+            vocabList.setVocabList((List<Vocab>)(List<?>) cards);
+            vocabListRepository.save(vocabList);
         }
     }
 }

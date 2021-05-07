@@ -23,6 +23,6 @@ public class SimpleUiController {
 
     @FXML
     public void initialize () {
-        //this.label.setText(String.valueOf(flashcardRepository.getOne(1L).getFront()));
+        this.label.setText(String.valueOf("ayyy"));
     }
 }

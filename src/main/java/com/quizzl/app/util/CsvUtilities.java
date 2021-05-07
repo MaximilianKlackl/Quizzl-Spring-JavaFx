@@ -13,23 +13,21 @@ import java.util.List;
 @Component
 public class CsvUtilities {
 
-    // test comment
-
-    private final FlashcardStapleRepository flashcardStapleRepository;
-    private final VocabListRepository vocabListRepository;
+    private static FlashcardStapleRepository flashcardStapleRepository;
+    private static VocabListRepository vocabListRepository;
 
     @Autowired
     CsvUtilities(FlashcardStapleRepository flashcardStapleRepository, VocabListRepository vocabListRepository){
-        this.flashcardStapleRepository = flashcardStapleRepository;
-        this.vocabListRepository = vocabListRepository;
+        CsvUtilities.flashcardStapleRepository = flashcardStapleRepository;
+        CsvUtilities.vocabListRepository = vocabListRepository;
 
     }
 
-    public void exportCards(List<Card> cardList){
+    public static void exportCards(List<Card> cardList){
         // export to csv
     }
 
-    public void importCards(URL url, boolean isFlashcard){
+    public static void importCards(URL url, boolean isFlashcard){
 
         List<Card> cards = new ArrayList<>();
 

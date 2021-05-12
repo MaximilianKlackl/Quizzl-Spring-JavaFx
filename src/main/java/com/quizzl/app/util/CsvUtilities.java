@@ -24,7 +24,7 @@ public class CsvUtilities {
     }
 
     public static void exportCards(List<Card> cardList){
-        // export to csv
+        // export to csv asdasd
     }
 
     public static void importCards(URL url, boolean isFlashcard){

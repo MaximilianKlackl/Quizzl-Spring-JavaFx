@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
-</AnchorPane>
+<VBox alignment="TOP_CENTER" prefHeight="566.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.quizzl.app.controller.NavBarController">
+    <children>
+        <Button fx:id="manageFlashcardsButton" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Manage Flashcards" />
+        <Button fx:id="manageVocabsButton" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Manage Vocabs" />
+        <Button fx:id="learnSessionButton" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Start Learn Session" />
+        <Button fx:id="openTriviaButton" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Open Trivia" />
+    </children>
+    <padding>
+        <Insets top="22.0" />
+    </padding>
+</VBox>

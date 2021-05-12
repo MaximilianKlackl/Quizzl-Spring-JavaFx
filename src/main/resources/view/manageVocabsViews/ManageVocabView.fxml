@@ -9,19 +9,6 @@
    <left>
        <fx:include source="../NavBar.fxml" />
    </left>
-   <bottom>
-      <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="TOP_RIGHT" prefHeight="26.0" prefWidth="1260.0" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets right="20.0" />
-               </HBox.margin>
-               <children>
-                  <Button mnemonicParsing="false" text="Delete Staple" />
-               </children>
-            </HBox>
-         </children></HBox>
-   </bottom>
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -49,7 +36,7 @@
                      <children>
                         <VBox prefHeight="80.0" prefWidth="276.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label text="Manage Flashcards">
+                              <Label text="Manage Vocabs">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

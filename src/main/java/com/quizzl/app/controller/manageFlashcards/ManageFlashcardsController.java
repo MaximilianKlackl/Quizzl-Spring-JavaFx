@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class ManageFlashcardsController {
 
+
+
     @FXML
     public void initialize() {
 

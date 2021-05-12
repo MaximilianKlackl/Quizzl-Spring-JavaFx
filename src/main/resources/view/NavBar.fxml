@@ -6,10 +6,10 @@
 
 <VBox alignment="TOP_CENTER" prefHeight="566.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.quizzl.app.controller.NavBarController">
     <children>
-        <Button fx:id="manageFlashcardsButton" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Manage Flashcards" />
-        <Button fx:id="manageVocabsButton" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Manage Vocabs" />
-        <Button fx:id="learnSessionButton" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Start Learn Session" />
-        <Button fx:id="openTriviaButton" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Open Trivia" />
+        <Button mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Manage Flashcards" />
+        <Button mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Manage Vocabs" />
+        <Button mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Start Learn Session" />
+        <Button mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Open Trivia" />
     </children>
     <padding>
         <Insets top="22.0" />

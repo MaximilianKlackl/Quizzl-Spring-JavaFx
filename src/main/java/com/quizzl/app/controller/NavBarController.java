@@ -14,11 +14,6 @@ import java.io.IOException;
 @Component
 public class NavBarController {
 
-    @FXML private Button learnSessionButton;
-    @FXML private Button manageFlashcardsButton;
-    @FXML private Button manageVocabsButton;
-    @FXML private Button openTriviaButton;
-
     @FXML
     private void handleMenuButtonAction (ActionEvent event) throws IOException {
 

@@ -76,10 +76,10 @@
                   </HBox>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="80.0" prefWidth="834.0" spacing="20.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#newCardAction" text="New Staple " />
-                        <Button mnemonicParsing="false" onAction="#addCardAction" text="Add Card" />
-                        <Button mnemonicParsing="false" onAction="#importStapleAction" text="Import Staple" />
-                        <Button mnemonicParsing="false" onAction="#exportStapleAction" text="Export Staple" />
+                        <Button mnemonicParsing="false"  text="New Staple " />
+                        <Button mnemonicParsing="false"  text="Add Card" />
+                        <Button mnemonicParsing="false"  text="Import Staple" />
+                        <Button mnemonicParsing="false"  text="Export Staple" />
                      </children>
                   </HBox>
                </children>

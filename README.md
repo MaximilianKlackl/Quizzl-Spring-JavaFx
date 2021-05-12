@@ -14,6 +14,7 @@ Quizzl is a Single User Desktop Application with a local SQLite Database designe
 
 ## To-Do's
 
+- refactor code to components to reduce code duplication
 - [x] create Folder Structure
 - [x] create Entities + attributes
 - [x] refactor Entity inheritance
@@ -21,6 +22,12 @@ Quizzl is a Single User Desktop Application with a local SQLite Database designe
 - [x] implement Repositories
 - [ ] test CRUD Operations
 - [ ] create CSV Utility Class
+    - [ ] Import
+    - [ ] Export
+    - [ ] fix Saving to DB
+- [ ] implement Manage Flashcard Page
+- [ ] implement Vocab Flashcard Page
+- [ ] implement Learn Session Page 
 
 ## Technologies
 

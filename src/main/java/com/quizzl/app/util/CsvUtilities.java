@@ -32,22 +32,6 @@ public class CsvUtilities {
 
     public static void importCards(String path, boolean isFlashcard)
     {
-
-        List<Card> cards = new ArrayList<>();
-
-        // csv to cards here
-
-        if(isFlashcard){
-            FlashcardStaple flashcardStaple = new FlashcardStaple("Default", "Default", "Default");
-            flashcardStaple.setFlashcardList((List<Flashcard>)(List<?>)cards);
-            flashcardStapleRepository.save(flashcardStaple);
-
-        }
-
-        if(!isFlashcard){
-            VocabList vocabList = new VocabList("Default", "Default", "Default");
-            vocabList.setVocabList((List<Vocab>)(List<?>) cards);
-            vocabListRepository.save(vocabList);
-        }
+      
     }
 }

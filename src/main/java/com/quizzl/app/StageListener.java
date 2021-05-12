@@ -20,7 +20,7 @@ public class StageListener implements ApplicationListener<JavafxApplication.Stag
     private final Resource fxml;
     private final ApplicationContext applicationContext;
 
-    public StageListener(@Value("classpath:/view/ui.fxml") Resource fxml, ApplicationContext applicationContext) {
+    public StageListener(@Value("classpath:/view/manageFlashcardsViews/ManageFlashcardsView.fxml") Resource fxml, ApplicationContext applicationContext) {
         this.fxml = fxml;
         this.applicationContext = applicationContext;
     }
@@ -33,7 +33,7 @@ public class StageListener implements ApplicationListener<JavafxApplication.Stag
             FXMLLoader fxmlLoader = new FXMLLoader(url);
             fxmlLoader.setControllerFactory(applicationContext::getBean);
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 600, 600);
+            Scene scene = new Scene(root, 1280, 720);
             stage.setScene(scene);
             stage.setTitle(this.applicationTitle);
             stage.show();

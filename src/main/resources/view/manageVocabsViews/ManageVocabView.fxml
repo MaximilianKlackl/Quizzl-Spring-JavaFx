@@ -89,4 +89,17 @@
          </children>
       </HBox>
    </center>
+   <bottom>
+      <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="26.0" prefWidth="1260.0" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+               <children>
+                  <Button mnemonicParsing="false" text="Delete Staple" />
+               </children>
+            </HBox>
+         </children></HBox>
+   </bottom>
 </BorderPane>

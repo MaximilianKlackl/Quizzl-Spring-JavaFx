@@ -37,7 +37,6 @@ public class CsvUtilities {
             FlashcardStaple flashcardStaple = new FlashcardStaple("Default", "Default", "Default");
             flashcardStaple.setFlashcardList((List<Flashcard>)(List<?>)cards);
             flashcardStapleRepository.save(flashcardStaple);
-
         }
 
         if(!isFlashcard){

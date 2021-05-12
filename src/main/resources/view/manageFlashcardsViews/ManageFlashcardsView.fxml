@@ -76,10 +76,10 @@
                   </HBox>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="80.0" prefWidth="834.0" spacing="20.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button mnemonicParsing="false" text="New Staple " />
-                        <Button mnemonicParsing="false" text="Add Card" />
-                        <Button mnemonicParsing="false" text="Import Staple" />
-                        <Button mnemonicParsing="false" text="Export Staple" />
+                        <Button mnemonicParsing="false" onAction="#newCardAction" text="New Staple " />
+                        <Button mnemonicParsing="false" onAction="#addCardAction" text="Add Card" />
+                        <Button mnemonicParsing="false" onAction="#importStapleAction" text="Import Staple" />
+                        <Button mnemonicParsing="false" onAction="#exportStapleAction" text="Export Staple" />
                      </children>
                   </HBox>
                </children>
@@ -89,7 +89,7 @@
    <center>
       <HBox prefHeight="341.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView HBox.hgrow="ALWAYS">
+            <TableView fx:id="tableView" HBox.hgrow="ALWAYS">
               <columns>
                 <TableColumn maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="id" />
                 <TableColumn maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="300.0" text="question" />

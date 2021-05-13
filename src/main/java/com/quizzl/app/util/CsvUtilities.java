@@ -14,20 +14,21 @@ import java.util.List;
 @Component
 public class CsvUtilities {
 
-    private final FlashcardStapleRepository flashcardStapleRepository;
-    private final VocabListRepository vocabListRepository;
+    private static FlashcardStapleRepository flashcardStapleRepository;
+    private static VocabListRepository vocabListRepository;
 
     @Autowired
     CsvUtilities(FlashcardStapleRepository flashcardStapleRepository, VocabListRepository vocabListRepository)
     {
-        this.flashcardStapleRepository = flashcardStapleRepository;
-        this.vocabListRepository = vocabListRepository;
+        CsvUtilities.flashcardStapleRepository = flashcardStapleRepository;
+        CsvUtilities.vocabListRepository = vocabListRepository;
 
     }
 
     public static void exportCards(List<Card> cardList, String path)
     {
         // export to csv
+
     }
 
 

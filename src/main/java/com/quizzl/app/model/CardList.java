@@ -14,6 +14,8 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="dtype",
+        discriminatorType = DiscriminatorType.STRING)
 public class CardList extends BaseEntity{
 
     private String name;

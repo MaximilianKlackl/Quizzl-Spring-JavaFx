@@ -13,6 +13,7 @@ import javax.persistence.*;
 @ToString
 
 @Entity
+@DiscriminatorValue("Flashcard")
 public class Flashcard extends Card{
 
     @ManyToOne(

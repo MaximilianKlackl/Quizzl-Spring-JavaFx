@@ -1,4 +1,4 @@
-package com.quizzl.app.model;
+package com.quizzl.app.model.db;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

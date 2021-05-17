@@ -51,6 +51,5 @@ public class CommandLineUtil implements CommandLineRunner {
         flashcardRepository.saveAll(flashcardList);
         statisticRepository.save(statistic);
         flashcardStapleRepository.save(flashcardStaple);
-
     }
 }

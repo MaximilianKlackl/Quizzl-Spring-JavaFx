@@ -2,22 +2,24 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.manageFlashcards.ManageFlashcardsController">
    <left>
        <fx:include source="../NavBar.fxml" />
    </left>
    <bottom>
       <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="TOP_RIGHT" prefHeight="26.0" prefWidth="1260.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="TOP_RIGHT" prefHeight="26.0" prefWidth="1260.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
                <children>
-                  <Button mnemonicParsing="false" text="Delete Staple" />
+                  <Button mnemonicParsing="false" text="Delete Selected" />
+                  <Button layoutX="1184.0" layoutY="10.0" mnemonicParsing="false" text="Delete Staple" />
                </children>
             </HBox>
          </children></HBox>
@@ -56,7 +58,7 @@
                               </Label>
                               <HBox alignment="BOTTOM_LEFT" prefHeight="29.0" prefWidth="298.0" spacing="5.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <ComboBox prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                    <ComboBox fx:id="stapleListDropdown" onAction="#dropDownListener" prefWidth="150.0" HBox.hgrow="ALWAYS" />
                                     <Label text="Description">
                                        <font>
                                           <Font size="14.0" />
@@ -76,10 +78,10 @@
                   </HBox>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="80.0" prefWidth="834.0" spacing="20.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button mnemonicParsing="false"  text="New Staple " />
-                        <Button mnemonicParsing="false"  text="Add Card" />
-                        <Button mnemonicParsing="false"  text="Import Staple" />
-                        <Button mnemonicParsing="false"  text="Export Staple" />
+                        <Button mnemonicParsing="false" text="New Staple " />
+                        <Button mnemonicParsing="false" text="Add Card" />
+                        <Button mnemonicParsing="false" text="Import Staple" />
+                        <Button mnemonicParsing="false" text="Export Staple" />
                      </children>
                   </HBox>
                </children>
@@ -89,11 +91,17 @@
    <center>
       <HBox prefHeight="341.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tableView" HBox.hgrow="ALWAYS">
+            <TableView fx:id="tableView" editable="true" HBox.hgrow="ALWAYS">
               <columns>
-                <TableColumn maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="id" />
-                <TableColumn maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="300.0" text="question" />
-                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="300.0" text="answer" />
+                  <TableColumn editable="false" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" sortable="false" text="id">
+                     <cellValueFactory><PropertyValueFactory property="id" /></cellValueFactory>
+                  </TableColumn>
+                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="426.5999755859375" sortable="false" text="question">
+                     <cellValueFactory><PropertyValueFactory property="front" /></cellValueFactory>
+                  </TableColumn>
+                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="115.0" prefWidth="462.99993896484375" sortable="false" text="answer">
+                     <cellValueFactory><PropertyValueFactory property="back" /></cellValueFactory>
+                  </TableColumn>
               </columns>
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

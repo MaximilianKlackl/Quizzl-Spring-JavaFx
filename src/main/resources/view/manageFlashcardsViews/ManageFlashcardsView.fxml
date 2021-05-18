@@ -18,7 +18,7 @@
                   <Insets right="20.0" />
                </HBox.margin>
                <children>
-                  <Button mnemonicParsing="false" text="Delete Selected" />
+                  <Button fx:id="deleteSelectedButton" onAction="#deleteSelection" mnemonicParsing="false" text="Delete Selected" />
                   <Button layoutX="1184.0" layoutY="10.0" mnemonicParsing="false" text="Delete Staple" />
                </children>
             </HBox>

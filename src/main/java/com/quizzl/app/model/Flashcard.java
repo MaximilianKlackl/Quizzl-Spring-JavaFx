@@ -9,9 +9,8 @@ import javax.persistence.*;
 
 @Setter
 @Getter
-@EqualsAndHashCode(callSuper = false)
 @ToString
-
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @DiscriminatorValue("Flashcard")
 public class Flashcard extends Card{

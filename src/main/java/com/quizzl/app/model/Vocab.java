@@ -8,10 +8,9 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Getter
-@EqualsAndHashCode(callSuper = false)
 @ToString
 @Setter
-
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @DiscriminatorValue("Vocab")
 public class Vocab extends Card {

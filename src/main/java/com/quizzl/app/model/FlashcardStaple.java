@@ -11,9 +11,8 @@ import java.util.List;
 
 @Setter
 @Getter
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @ToString
-
 @Entity
 @DiscriminatorValue("FlashcardStaple")
 public class FlashcardStaple extends CardList {

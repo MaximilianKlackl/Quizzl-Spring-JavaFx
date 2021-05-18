@@ -7,11 +7,11 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
-@Getter
-@EqualsAndHashCode(callSuper = false)
+
 @ToString
 @Setter
-
+@Getter
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="dtype",

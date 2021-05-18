@@ -35,14 +35,20 @@ public class CommandLineUtil implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        createDataWithPrefix("Nice");
+        createDataWithPrefix("Test");
+        createDataWithPrefix("Brrrr");
+    }
+
+    private void createDataWithPrefix(String prefix){
         List<Flashcard> flashcardList = new ArrayList<>();
-        FlashcardStaple flashcardStaple = new FlashcardStaple("Test", "Test", "Test");
+        FlashcardStaple flashcardStaple = new FlashcardStaple("Test" + prefix, "Test" + prefix, "Test" + prefix);
         Statistic statistic = new Statistic(20, 0.2f);
 
         flashcardStaple.setStatistic(statistic);
 
         for(int i = 0; i < 20; i++){
-            Flashcard flashcard = new Flashcard("front" + i, "back" + i );
+            Flashcard flashcard = new Flashcard("front" + i + prefix, "back" + i + prefix);
             flashcard.setFlashcardList(flashcardStaple);
             flashcard.setStatistic(statistic);
             flashcardList.add(flashcard);

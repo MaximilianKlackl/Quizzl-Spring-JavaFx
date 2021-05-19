@@ -4,23 +4,17 @@ import com.quizzl.app.model.Flashcard;
 import com.quizzl.app.model.FlashcardStaple;
 import com.quizzl.app.repository.FlashcardRepository;
 import com.quizzl.app.repository.FlashcardStapleRepository;
-import javafx.beans.Observable;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class ManageFlashcardsController {
@@ -87,7 +81,7 @@ public class ManageFlashcardsController {
                 .stream()
                 .filter(staple -> staple.getName().equals(stapleName))
                 .findFirst()
-                .orElse(currentStaple);
+                .orElse(null);
 
         updateTable();
     }
@@ -96,11 +90,12 @@ public class ManageFlashcardsController {
 
         currentStaple.getFlashcardList().removeIf(f -> selectedFlashcards.contains(f));
 
-        flashcardRepository.deleteAll(selectedFlashcards);
-        currentStaple.setFlashcardList(currentStaple.getFlashcardList());
+        selectedFlashcards.forEach(s -> flashcardRepository.deleteById(s.getId()));
 
         updateTable();
     }
+
+
     private void updateTable(){
         tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
     }

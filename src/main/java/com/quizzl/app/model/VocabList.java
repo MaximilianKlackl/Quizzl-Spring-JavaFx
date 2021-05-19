@@ -10,10 +10,9 @@ import java.util.List;
 
 @Setter
 @Getter
-@ToString
 @EqualsAndHashCode(callSuper = true)
+
 @Entity
-@DiscriminatorValue("VocabList")
 public class VocabList extends CardList {
 
     private String unit;

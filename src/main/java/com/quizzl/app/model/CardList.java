@@ -3,19 +3,15 @@ package com.quizzl.app.model;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 
-
-@ToString
 @Setter
 @Getter
-@Entity
 @EqualsAndHashCode(callSuper = true)
+
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="dtype",
-        discriminatorType = DiscriminatorType.STRING)
+@Entity
 public class CardList extends BaseEntity{
 
     private String name;

@@ -35,12 +35,12 @@ public class CommandLineUtil implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        createDataWithPrefix("Nice");
-        createDataWithPrefix("Test");
-        createDataWithPrefix("Brrrr");
+        createDataSetWithPrefix("Nice");
+        createDataSetWithPrefix("Test");
+        createDataSetWithPrefix("Brrrr");
     }
 
-    private void createDataWithPrefix(String prefix){
+    public void createDataSetWithPrefix(String prefix){
         List<Flashcard> flashcardList = new ArrayList<>();
         FlashcardStaple flashcardStaple = new FlashcardStaple("Test" + prefix, "Test" + prefix, "Test" + prefix);
         Statistic statistic = new Statistic(20, 0.2f);
@@ -57,5 +57,12 @@ public class CommandLineUtil implements CommandLineRunner {
         flashcardRepository.saveAll(flashcardList);
         statisticRepository.save(statistic);
         flashcardStapleRepository.save(flashcardStaple);
+
+        //flashcardRepository.deleteById(1L);
+        Flashcard f = flashcardRepository.getOneById(1L);
+        System.out.println(f.getId());
+        f.setFront("New Text");
+        flashcardRepository.save(f);
+
     }
 }

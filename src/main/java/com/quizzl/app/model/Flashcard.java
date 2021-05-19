@@ -3,16 +3,14 @@ package com.quizzl.app.model;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 
 @Setter
 @Getter
-@ToString
 @EqualsAndHashCode(callSuper = true)
+
 @Entity
-@DiscriminatorValue("Flashcard")
 public class Flashcard extends Card{
 
     @ManyToOne(

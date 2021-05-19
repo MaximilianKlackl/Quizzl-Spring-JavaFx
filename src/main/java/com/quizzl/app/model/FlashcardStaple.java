@@ -3,7 +3,6 @@ package com.quizzl.app.model;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,9 +11,8 @@ import java.util.List;
 @Setter
 @Getter
 @EqualsAndHashCode(callSuper = true)
-@ToString
+
 @Entity
-@DiscriminatorValue("FlashcardStaple")
 public class FlashcardStaple extends CardList {
 
     private String topic;

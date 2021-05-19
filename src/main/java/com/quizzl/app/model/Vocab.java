@@ -8,11 +8,10 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Getter
-@ToString
 @Setter
 @EqualsAndHashCode(callSuper = true)
+
 @Entity
-@DiscriminatorValue("Vocab")
 public class Vocab extends Card {
 
     @ManyToOne(cascade = {CascadeType.ALL})

@@ -6,6 +6,7 @@ import com.quizzl.app.repository.VocabListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,15 +24,23 @@ public class CsvUtilities {
 
     }
 
-    public static void exportCards(List<Card> cardList){
-        // export to csv asdasd
+    public static void exportCards(List<Card> cardList, String fileName) throws IOException {
+
+
+        // export to csv
+
+
     }
 
-    public static void importCards(URL url, boolean isFlashcard){
+    public static void importCards(String path, boolean isFlashcard) throws IOException {
 
         List<Card> cards = new ArrayList<>();
 
         // csv to cards here
+
+        try(BufferedReader br = new BufferedReader(new FileReader(path))) {
+
+        }
 
         if(isFlashcard){
             FlashcardStaple flashcardStaple = new FlashcardStaple("Default", "Default", "Default");

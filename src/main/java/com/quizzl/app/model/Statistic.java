@@ -9,9 +9,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Getter
-@ToString
-@EqualsAndHashCode(callSuper = false)
 @Setter
+@EqualsAndHashCode(callSuper = true)
 
 @Entity
 public class Statistic extends BaseEntity {

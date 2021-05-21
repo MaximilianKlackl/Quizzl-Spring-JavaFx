@@ -1,8 +1,8 @@
 package com.quizzl.app.controller;
 
+import com.quizzl.app.util.SpringFxmlLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -25,19 +25,19 @@ public class NavBarController {
         switch (navigateTo){
 
             case "Manage Flashcards": {
-                newScene = FXMLLoader.load(getClass().getResource("/view/manageFlashcardsViews/ManageFlashcardsView.fxml"));
+                newScene = (Parent) SpringFxmlLoader.load("/view/manageFlashcardsViews/ManageFlashcardsView.fxml");
                 break;
             }
             case "Manage Vocabs": {
-                newScene = FXMLLoader.load(getClass().getResource("/view/manageVocabsViews/ManageVocabView.fxml"));
+                newScene = (Parent) SpringFxmlLoader.load("/view/manageVocabsViews/ManageVocabView.fxml");
                 break;
             }
             case "Start Learn Session": {
-                newScene = FXMLLoader.load(getClass().getResource("/view/learnSessionViews/learnSessionView.fxml"));
+                newScene = (Parent) SpringFxmlLoader.load("/view/learnSessionViews/learnSessionView.fxml");
                 break;
             }
             case "Open Trivia": {
-                newScene = FXMLLoader.load(getClass().getResource("/view/openTriviaViews/openTriviaView.fxml"));
+                newScene = (Parent) SpringFxmlLoader.load("/view/openTriviaViews/openTriviaView.fxml");
                 break;
             }
         }

@@ -4,15 +4,22 @@ import com.quizzl.app.model.Flashcard;
 import com.quizzl.app.model.FlashcardStaple;
 import com.quizzl.app.repository.FlashcardRepository;
 import com.quizzl.app.repository.FlashcardStapleRepository;
+import com.quizzl.app.util.SpringFxmlLoader;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -98,5 +105,30 @@ public class ManageFlashcardsController {
 
     private void updateTable(){
         tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
+    }
+
+    public void createStaple(ActionEvent actionEvent) {
+
+    }
+
+    public void createCard(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/manageFlashcardsViews/AddCardDialog.fxml");
+        Parent parent = loader.load();
+
+        AddCardController controller = loader.getController();
+        controller.setData(true, currentStaple.getId());
+
+        Scene scene = new Scene(parent, 400, 200);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
+
+    public void importStaple(ActionEvent actionEvent) {
+    }
+
+    public void exportStaple(ActionEvent actionEvent) {
     }
 }

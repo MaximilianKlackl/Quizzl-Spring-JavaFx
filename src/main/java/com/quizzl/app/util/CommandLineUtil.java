@@ -1,35 +1,25 @@
 package com.quizzl.app.util;
-
 import com.quizzl.app.model.Flashcard;
 import com.quizzl.app.model.FlashcardStaple;
-import com.quizzl.app.model.Statistic;
-import com.quizzl.app.repository.FlashcardRepository;
-import com.quizzl.app.repository.FlashcardStapleRepository;
-import com.quizzl.app.repository.StatisticRepository;
+import com.quizzl.app.service.IFlashcardService;
+import com.quizzl.app.service.IFlashcardStapleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 @Component
 public class CommandLineUtil implements CommandLineRunner {
 
-    private final FlashcardRepository flashcardRepository;
-    private final FlashcardStapleRepository flashcardStapleRepository;
-    private final StatisticRepository statisticRepository;
+    private final IFlashcardService flashcardService;
+    private final IFlashcardStapleService flashcardStapleService;
 
     @Autowired
-    public CommandLineUtil(
-            FlashcardRepository flashcardRepository,
-            FlashcardStapleRepository flashcardStapleRepository,
-            StatisticRepository statisticRepository
-    ){
-
-        this.flashcardRepository = flashcardRepository;
-        this.flashcardStapleRepository = flashcardStapleRepository;
-        this.statisticRepository = statisticRepository;
+    public CommandLineUtil(IFlashcardService flashcardService, IFlashcardStapleService flashcardStapleService) {
+        this.flashcardService = flashcardService;
+        this.flashcardStapleService = flashcardStapleService;
     }
 
     @Override
@@ -41,28 +31,13 @@ public class CommandLineUtil implements CommandLineRunner {
     }
 
     public void createDataSetWithPrefix(String prefix){
-        List<Flashcard> flashcardList = new ArrayList<>();
-        FlashcardStaple flashcardStaple = new FlashcardStaple("Test" + prefix, "Test" + prefix, "Test" + prefix);
-        Statistic statistic = new Statistic(20, 0.2f);
 
-        flashcardStaple.setStatistic(statistic);
+        FlashcardStaple staple = new FlashcardStaple("Test"+ prefix, "Test" + prefix, "Test" +prefix, null, new ArrayList<>());
 
         for(int i = 0; i < 20; i++){
-            Flashcard flashcard = new Flashcard("front" + i + prefix, "back" + i + prefix);
-            flashcard.setFlashcardList(flashcardStaple);
-            flashcard.setStatistic(statistic);
-            flashcardList.add(flashcard);
+            staple.getFlashcardList().add(new Flashcard("Test" + prefix, "Test" + prefix, null, staple));
         }
 
-        flashcardRepository.saveAll(flashcardList);
-        statisticRepository.save(statistic);
-        flashcardStapleRepository.save(flashcardStaple);
-
-        //flashcardRepository.deleteById(1L);
-        Flashcard f = flashcardRepository.getOneById(1L);
-        System.out.println(f.getId());
-        f.setFront("New Text");
-        flashcardRepository.save(f);
-
+        flashcardStapleService.save(staple);
     }
 }

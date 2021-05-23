@@ -30,11 +30,6 @@ public class NavBarController {
                 newScene = loader.load();
                 break;
             }
-            case "Manage Vocabs": {
-                FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/manageVocabsViews/ManageVocabView.fxml");
-                newScene = loader.load();
-                break;
-            }
             case "Start Learn Session": {
 
                 FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/learnSessionViews/learnSessionView.fxml");

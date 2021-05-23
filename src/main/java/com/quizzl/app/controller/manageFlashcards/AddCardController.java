@@ -1,12 +1,7 @@
-package com.quizzl.app.controller;
+package com.quizzl.app.controller.manageFlashcards;
 
-import com.quizzl.app.model.Flashcard;
-import com.quizzl.app.model.FlashcardStaple;
-import com.quizzl.app.model.Vocab;
 import com.quizzl.app.repository.FlashcardRepository;
 import com.quizzl.app.repository.FlashcardStapleRepository;
-import com.quizzl.app.repository.VocabListRepository;
-import com.quizzl.app.repository.VocabRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -15,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class AddCardController {
@@ -30,18 +24,13 @@ public class AddCardController {
 
     private FlashcardStapleRepository flashcardStapleRepository;
     private FlashcardRepository flashcardRepository;
-    private VocabRepository vocabRepository;
-    private VocabListRepository vocabListRepository;
 
     @Autowired
     public AddCardController(FlashcardStapleRepository flashcardStapleRepository,
-                             FlashcardRepository flashcardRepository,
-                             VocabRepository vocabRepository,
-                             VocabListRepository vocabListRepository) {
+                             FlashcardRepository flashcardRepository) {
         this.flashcardStapleRepository = flashcardStapleRepository;
         this.flashcardRepository = flashcardRepository;
-        this.vocabRepository = vocabRepository;
-        this.vocabListRepository = vocabListRepository;
+
     }
 
     public void setData(boolean isFlashcard, long currentListId){
@@ -65,7 +54,6 @@ public class AddCardController {
         stage.close();
     }
 
-    @Transactional
     public void save(ActionEvent actionEvent) {
 
         String t1 = textField1.getText();
@@ -73,7 +61,9 @@ public class AddCardController {
 
         if(!t1.isEmpty() && !t2.isEmpty()){
 
-            flashcardRepository.create(t1, t2, currentListId);
+
         }
+
+        cancel(actionEvent);
     }
 }

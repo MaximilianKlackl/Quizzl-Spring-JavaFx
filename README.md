@@ -51,6 +51,7 @@ Quizzl
 │   │   │               ├── model
 │   │   │               ├── repository
 │   │   │               ├── util
+│   │   │               ├── service 
 │   │   │               ├── BootifulFxApplication.java
 │   │   │               ├── JavafxApplication.java
 │   │   │               └── StageListener.java

@@ -8,10 +8,10 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Label" fx:id="label1"/>
-            <TextField fx:id="textField1"/>
-            <Label text="Label" fx:id="label2"/>
-            <TextField fx:id="textField2"/>
+            <Label text="Question"/>
+            <TextField fx:id="questionField"/>
+            <Label text="Answer"/>
+            <TextField fx:id="answerField"/>
             <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
                <children>
                   <Button mnemonicParsing="false" text="Cancel" onAction="#cancel"/>

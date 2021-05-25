@@ -20,12 +20,10 @@ public class Flashcard extends BaseEntity{
     @ManyToOne(
             cascade = {CascadeType.ALL},
             fetch = FetchType.LAZY)
-    @JoinColumn(name = "statistic_id")
     private Statistic statistic;
 
     @ManyToOne(
-            cascade = {CascadeType.ALL},
+            cascade = {CascadeType.MERGE},
             fetch = FetchType.LAZY)
-    @JoinColumn(name = "cardlist_id")
     private FlashcardStaple flashcardList;
 }

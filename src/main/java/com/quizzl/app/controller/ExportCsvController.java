@@ -1,28 +1,29 @@
 package com.quizzl.app.controller;
 
-import com.quizzl.app.model.FlashcardStaple;
 import com.quizzl.app.repository.FlashcardRepository;
+import com.quizzl.app.util.CsvUtilities;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
 @Component
-public class SimpleUiController {
-
+public class ExportCsvController
+{
     private final FlashcardRepository flashcardRepository;
 
-    @FXML
-    public Label label;
 
     @Autowired
-    public SimpleUiController(FlashcardRepository flashcardRepository) {
+    public ExportCsvController(FlashcardRepository flashcardRepository)
+    {
         this.flashcardRepository = flashcardRepository;
     }
+    private TextField filePath;
 
     @FXML
-    public void initialize () {
-        this.label.setText(String.valueOf("ayyy"));
+    private void export_list()
+    {
+        CsvUtilities.exportCards(null, filePath.getText());
+
     }
 }

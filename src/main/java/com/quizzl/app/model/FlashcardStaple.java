@@ -1,46 +1,33 @@
 package com.quizzl.app.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import java.util.ArrayList;
+import javax.persistence.*;
 import java.util.List;
 
 @Setter
 @Getter
-@EqualsAndHashCode(callSuper = false)
-@ToString
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
 
 @Entity
-public class FlashcardStaple extends CardList {
+public class FlashcardStaple extends BaseEntity{
 
     private String topic;
+    private String name;
+    private String description;
+
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    @JoinColumn(name = "statistic_id")
+    private Statistic statistic;
 
     @OneToMany(
             mappedBy = "flashcardList",
             cascade = {CascadeType.ALL},
-            fetch = FetchType.LAZY)
+            fetch = FetchType.EAGER) // leave FetchType.Eager or FlashcardsController gonna break...
     private List<Flashcard> flashcardList;
 
-    public FlashcardStaple(String topic, String name, String description){
-        super(name, description);
-        flashcardList = new ArrayList<>();
-        this.topic = topic;
-    }
-
-    public FlashcardStaple(String topic, String name, String description, List<Flashcard> flashcardList, Statistic statistic){
-        super(name, description, statistic);
-        this.flashcardList = flashcardList;
-        this.topic = topic;
-    }
-
-    public FlashcardStaple() {
-
-    }
 }

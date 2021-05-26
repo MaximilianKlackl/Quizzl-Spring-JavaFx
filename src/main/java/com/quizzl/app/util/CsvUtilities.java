@@ -22,12 +22,13 @@ public class CsvUtilities {
     public static void exportCards(FlashcardStaple staple, String path)
     {
         // export to csv
-
     }
 
 
-    public static void importCards(String path, boolean isFlashcard)
+    public static FlashcardStaple importCards(String path)
     {
-      
+       //import from csv
+
+        return null;
     }
 }

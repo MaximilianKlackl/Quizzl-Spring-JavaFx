@@ -1,5 +1,7 @@
 package com.quizzl.app.controller.manageFlashcards;
 
+import com.quizzl.app.controller.ExportCsvController;
+import com.quizzl.app.controller.ImportCsvController;
 import com.quizzl.app.model.Flashcard;
 import com.quizzl.app.model.FlashcardStaple;
 import com.quizzl.app.repository.FlashcardRepository;
@@ -126,9 +128,31 @@ public class ManageFlashcardsController {
         stage.showAndWait();
     }
 
-    public void importStaple(ActionEvent actionEvent) {
+    public void importStaple(ActionEvent actionEvent) throws IOException
+    {
+        FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/manageFlashcardsViews/ImportFlashcardsView.fxml");
+        Parent parent = loader.load();
+
+        ImportCsvController controller = loader.getController();
+
+        Scene scene = new Scene(parent, 400, 200);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 
-    public void exportStaple(ActionEvent actionEvent) {
+    public void exportStaple(ActionEvent actionEvent) throws IOException
+    {
+        FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/manageFlashcardsViews/ExportFlashcardsView.fxml");
+        Parent parent = loader.load();
+
+        ExportCsvController controller = loader.getController();
+
+        Scene scene = new Scene(parent, 400, 200);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 }

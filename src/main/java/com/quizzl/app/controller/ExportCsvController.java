@@ -25,6 +25,6 @@ public class ExportCsvController
     @FXML
     private void export_list()
     {
-        CsvUtilities.exportCards(null, filePath.getText());
+        //CsvUtilities.exportCards(null, filePath.getText());
     }
 }

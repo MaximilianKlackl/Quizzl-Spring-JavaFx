@@ -78,10 +78,10 @@
                   </HBox>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="80.0" prefWidth="834.0" spacing="20.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button mnemonicParsing="false" text="New Staple " />
-                        <Button mnemonicParsing="false" text="Add Card" />
-                        <Button mnemonicParsing="false" text="Import Staple" />
-                        <Button mnemonicParsing="false" text="Export Staple" />
+                        <Button mnemonicParsing="false" onAction="#createStaple" text="New Staple " />
+                        <Button mnemonicParsing="false" onAction="#createCard" text="Add Card" />
+                        <Button mnemonicParsing="false" onAction="#importStaple" text="Import Staple" />
+                        <Button mnemonicParsing="false" onAction="#exportStaple" text="Export Staple" />
                      </children>
                   </HBox>
                </children>
@@ -97,10 +97,10 @@
                      <cellValueFactory><PropertyValueFactory property="id" /></cellValueFactory>
                   </TableColumn>
                   <TableColumn maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="426.5999755859375" sortable="false" text="question">
-                     <cellValueFactory><PropertyValueFactory property="front" /></cellValueFactory>
+                     <cellValueFactory><PropertyValueFactory property="question" /></cellValueFactory>
                   </TableColumn>
                   <TableColumn maxWidth="1.7976931348623157E308" minWidth="115.0" prefWidth="462.99993896484375" sortable="false" text="answer">
-                     <cellValueFactory><PropertyValueFactory property="back" /></cellValueFactory>
+                     <cellValueFactory><PropertyValueFactory property="answer" /></cellValueFactory>
                   </TableColumn>
               </columns>
                <HBox.margin>

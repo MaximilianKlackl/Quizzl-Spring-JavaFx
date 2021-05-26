@@ -20,13 +20,12 @@ Quizzl is a Single User Desktop Application with a local SQLite Database designe
 - [x] refactor Entity inheritance
 - [x] implement Entity associations
 - [x] implement Repositories
-- [ ] test CRUD Operations
+- [x] test CRUD Operations
 - [ ] create CSV Utility Class
     - [ ] Import
     - [ ] Export
     - [ ] fix Saving to DB
-- [ ] implement Manage Flashcard Page
-- [ ] implement Vocab Flashcard Page
+- [x] implement Manage Flashcard Page
 - [ ] implement Learn Session Page 
 
 ## Technologies
@@ -34,6 +33,8 @@ Quizzl is a Single User Desktop Application with a local SQLite Database designe
 - JavaFx
 - Spring Boot
 - SQLite
+- JPA
+- Lombok
 
 ## Folder Structure
 ```
@@ -51,6 +52,7 @@ Quizzl
 │   │   │               ├── model
 │   │   │               ├── repository
 │   │   │               ├── util
+│   │   │               ├── service 
 │   │   │               ├── BootifulFxApplication.java
 │   │   │               ├── JavafxApplication.java
 │   │   │               └── StageListener.java

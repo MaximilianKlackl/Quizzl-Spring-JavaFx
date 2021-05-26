@@ -4,8 +4,6 @@ import javafx.fxml.FXMLLoader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-
 @Component
 public class SpringFxmlLoader {
 
@@ -15,15 +13,10 @@ public class SpringFxmlLoader {
         SpringFxmlLoader.applicationContext = applicationContext;
     }
 
-    public static Object load(String url) {
+    public static Object getLoader(String url) {
         FXMLLoader loader = new FXMLLoader();
         loader.setControllerFactory(clazz -> applicationContext.getBean(clazz));
         loader.setLocation(SpringFxmlLoader.class.getResource(url));
-        try {
-            return loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return loader;
     }
 }

@@ -1,5 +1,6 @@
 package com.quizzl.app.controller;
 
+import com.quizzl.app.util.SpringFxmlLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,19 +26,19 @@ public class NavBarController {
         switch (navigateTo){
 
             case "Manage Flashcards": {
-                newScene = FXMLLoader.load(getClass().getResource("/view/manageFlashcardsViews/ManageFlashcardsView.fxml"));
-                break;
-            }
-            case "Manage Vocabs": {
-                newScene = FXMLLoader.load(getClass().getResource("/view/manageVocabsViews/ManageVocabView.fxml"));
+                FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/manageFlashcardsViews/ManageFlashcardsView.fxml");
+                newScene = loader.load();
                 break;
             }
             case "Start Learn Session": {
-                newScene = FXMLLoader.load(getClass().getResource("/view/learnSessionViews/learnSessionView.fxml"));
+
+                FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/learnSessionViews/learnSessionView.fxml");
+                newScene = loader.load();
                 break;
             }
             case "Open Trivia": {
-                newScene = FXMLLoader.load(getClass().getResource("/view/openTriviaViews/openTriviaView.fxml"));
+                FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/openTriviaViews/openTriviaView.fxml");
+                newScene = loader.load();
                 break;
             }
         }

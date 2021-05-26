@@ -7,7 +7,6 @@
 <VBox alignment="TOP_CENTER" prefHeight="566.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.quizzl.app.controller.NavBarController">
     <children>
         <Button mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Manage Flashcards" />
-        <Button mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Manage Vocabs" />
         <Button mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Start Learn Session" />
         <Button mnemonicParsing="false" onAction="#handleMenuButtonAction" prefWidth="160.0" text="Open Trivia" />
     </children>

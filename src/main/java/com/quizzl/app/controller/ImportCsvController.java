@@ -3,14 +3,11 @@ package com.quizzl.app.controller;
 import com.quizzl.app.repository.FlashcardRepository;
 import com.quizzl.app.util.CsvUtilities;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 
 @Component
 public class ImportCsvController

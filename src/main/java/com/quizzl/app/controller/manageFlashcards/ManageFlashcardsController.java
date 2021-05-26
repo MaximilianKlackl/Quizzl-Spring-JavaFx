@@ -77,19 +77,23 @@ public class ManageFlashcardsController {
 
     public void dropDownListener(ActionEvent actionEvent) {
 
+        // selected item
         String selectedItem = stapleListDropdown.getSelectionModel().getSelectedItem();
 
+        // update current staple
         currentStaple = stapleService.findAll()
                 .stream()
                 .filter(staple -> staple.getName().equals(selectedItem))
                 .findFirst()
                 .orElse(currentStaple);
 
+        // set ui
         tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
     }
 
     public void deleteSelection(ActionEvent actionEvent) {
 
+        // delete and update
         currentStaple.getFlashcardList().removeIf(f -> selectedFlashcards.contains(f));
         selectedFlashcards.forEach(s -> flashcardService.deleteById(s.getId()));
         tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
@@ -98,14 +102,17 @@ public class ManageFlashcardsController {
 
     public void createStaple(ActionEvent actionEvent) throws IOException {
 
+        // get new FXMLLoader
         FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/manageFlashcardsViews/AddStapleDialog.fxml");
         Parent parent = loader.load();
 
+        // get controller for communication
         AddStapleController controller = loader.getController();
         controller.setData(this);
 
         Scene scene = new Scene(parent, 400, 250);
         Stage stage = new Stage();
+        stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
         stage.showAndWait();
@@ -121,6 +128,7 @@ public class ManageFlashcardsController {
 
         Scene scene = new Scene(parent, 400, 200);
         Stage stage = new Stage();
+        stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
         stage.showAndWait();

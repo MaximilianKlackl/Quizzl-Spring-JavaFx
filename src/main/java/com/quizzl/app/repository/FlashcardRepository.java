@@ -1,8 +1,6 @@
 package com.quizzl.app.repository;
 
 import com.quizzl.app.model.Flashcard;
-import com.quizzl.app.model.FlashcardStaple;
-import com.quizzl.app.model.Statistic;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

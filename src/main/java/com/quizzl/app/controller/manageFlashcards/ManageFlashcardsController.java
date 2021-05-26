@@ -24,8 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-// TODO: REFACTOR UPDATING DB AND UI METHODS
-
 @Component
 public class ManageFlashcardsController {
 

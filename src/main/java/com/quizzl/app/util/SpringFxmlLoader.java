@@ -4,8 +4,6 @@ import javafx.fxml.FXMLLoader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-
 @Component
 public class SpringFxmlLoader {
 

@@ -2,8 +2,8 @@ package com.quizzl.app.controller.manageFlashcards;
 
 import com.quizzl.app.model.Flashcard;
 import com.quizzl.app.model.FlashcardStaple;
-import com.quizzl.app.repository.FlashcardRepository;
-import com.quizzl.app.repository.FlashcardStapleRepository;
+import com.quizzl.app.service.FlashcardService;
+import com.quizzl.app.service.FlashcardStapleService;
 import com.quizzl.app.util.SpringFxmlLoader;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -22,6 +22,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class ManageFlashcardsController {
@@ -30,26 +31,27 @@ public class ManageFlashcardsController {
     @FXML private TableView<Flashcard> tableView;
     @FXML private ComboBox<String> stapleListDropdown;
 
-    private final FlashcardStapleRepository flashcardStapleRepository;
-    private final FlashcardRepository flashcardRepository;
+    private final FlashcardStapleService stapleService;
+    private final FlashcardService flashcardService;
 
     private FlashcardStaple currentStaple;
     private List<FlashcardStaple> allStaples;
     private List<Flashcard> selectedFlashcards;
 
     @Autowired
-    public ManageFlashcardsController(FlashcardStapleRepository flashcardStapleRepository, FlashcardRepository flashcardRepository){
-        this.flashcardStapleRepository = flashcardStapleRepository;
-        this.flashcardRepository = flashcardRepository;
+    public ManageFlashcardsController(FlashcardStapleService stapleService, FlashcardService flashcardService) {
+        this.stapleService = stapleService;
+        this.flashcardService = flashcardService;
     }
+
 
     @FXML
     public void initialize() {
 
         // set default
-        allStaples = flashcardStapleRepository.findAll();
+        allStaples = stapleService.findAll();
         currentStaple = allStaples.get(0);
-        updateTable();
+        tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
 
         // add staple names
         allStaples.forEach(staple -> stapleListDropdown.getItems().add(staple.getName()));
@@ -66,49 +68,47 @@ public class ManageFlashcardsController {
         // detect selected rows
         ObservableList<Flashcard> selectedItems = tableView.getSelectionModel().getSelectedItems();
 
-        selectedItems.addListener(new ListChangeListener<Flashcard>() {
-            @Override
-            public void onChanged(Change<? extends Flashcard> change) {
-                int size = change.getList().size();
-                selectedFlashcards = new ArrayList<>(change.getList());
-                deleteSelectedButton.setText("Delete Selected [" + size + "]");
-            }
+        selectedItems.addListener((ListChangeListener<Flashcard>) change -> {
+            int size = change.getList().size();
+            selectedFlashcards = new ArrayList<>(change.getList());
+            deleteSelectedButton.setText("Delete Selected [" + size + "]");
         });
     }
 
     public void dropDownListener(ActionEvent actionEvent) {
 
         String selectedItem = stapleListDropdown.getSelectionModel().getSelectedItem();
-        setCurrentStaple(selectedItem);
-    }
 
-    private void setCurrentStaple(String stapleName){
-
-        currentStaple = allStaples
+        currentStaple = stapleService.findAll()
                 .stream()
-                .filter(staple -> staple.getName().equals(stapleName))
+                .filter(staple -> staple.getName().equals(selectedItem))
                 .findFirst()
-                .orElse(null);
+                .orElse(currentStaple);
 
-        updateTable();
+        tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
     }
 
     public void deleteSelection(ActionEvent actionEvent) {
 
         currentStaple.getFlashcardList().removeIf(f -> selectedFlashcards.contains(f));
-
-        selectedFlashcards.forEach(s -> flashcardRepository.deleteById(s.getId()));
-
-        updateTable();
-    }
-
-
-    private void updateTable(){
+        selectedFlashcards.forEach(s -> flashcardService.deleteById(s.getId()));
         tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
     }
 
-    public void createStaple(ActionEvent actionEvent) {
 
+    public void createStaple(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/manageFlashcardsViews/AddStapleDialog.fxml");
+        Parent parent = loader.load();
+
+        AddStapleController controller = loader.getController();
+        controller.setData(this);
+
+        Scene scene = new Scene(parent, 400, 250);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 
     public void createCard(ActionEvent actionEvent) throws IOException {
@@ -117,7 +117,7 @@ public class ManageFlashcardsController {
         Parent parent = loader.load();
 
         AddCardController controller = loader.getController();
-        controller.setData(true, currentStaple.getId());
+        controller.setData(currentStaple, this);
 
         Scene scene = new Scene(parent, 400, 200);
         Stage stage = new Stage();
@@ -126,9 +126,32 @@ public class ManageFlashcardsController {
         stage.showAndWait();
     }
 
+    public void updateStaple(String name){
+
+        allStaples = stapleService.findAll();
+        currentStaple = stapleService.findOne(currentStaple.getId());
+
+        stapleListDropdown.setItems(FXCollections.observableList(allStaples.stream()
+                .map(FlashcardStaple::getName)
+                .collect(Collectors.toList())));
+
+        stapleListDropdown.getSelectionModel().select(name);
+
+        tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
+    }
+
+    public void updateAll(){
+        allStaples = stapleService.findAll();
+        currentStaple = stapleService.findOne(currentStaple.getId());
+
+        tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
+    }
+
     public void importStaple(ActionEvent actionEvent) {
+
     }
 
     public void exportStaple(ActionEvent actionEvent) {
+
     }
 }

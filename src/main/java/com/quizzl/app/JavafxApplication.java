@@ -10,16 +10,22 @@ import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
-public class JavafxApplication extends Application {
+public class JavafxApplication extends Application
+{
 
     private ConfigurableApplicationContext context;
 
     @Override
     public void init() throws Exception {
-        ApplicationContextInitializer<GenericApplicationContext> initializer = genericApplicationContext -> {
-            genericApplicationContext.registerBean(Application.class, () -> JavafxApplication.this);
-            genericApplicationContext.registerBean(Parameters.class, this::getParameters);
-            genericApplicationContext.registerBean(HostServices.class, this::getHostServices);
+        ApplicationContextInitializer<GenericApplicationContext> initializer = new ApplicationContextInitializer<GenericApplicationContext>()
+        {
+            @Override
+            public void initialize(GenericApplicationContext genericApplicationContext)
+            {
+                genericApplicationContext.registerBean(Application.class, () -> JavafxApplication.this);
+                genericApplicationContext.registerBean(Parameters.class, () -> getParameters());
+                genericApplicationContext.registerBean(HostServices.class, () -> getHostServices());
+            }
         };
 
         this.context = new SpringApplicationBuilder().sources(BootifulFxApplication.class)
@@ -28,7 +34,8 @@ public class JavafxApplication extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) throws Exception
+    {
         this.context.publishEvent(new StageReadyEvent(primaryStage));
     }
 
@@ -38,7 +45,8 @@ public class JavafxApplication extends Application {
         Platform.exit();
     }
 
-    public class StageReadyEvent extends ApplicationEvent {
+    public class StageReadyEvent extends ApplicationEvent
+    {
 
         public Stage getStage() {
             return Stage.class.cast(getSource());

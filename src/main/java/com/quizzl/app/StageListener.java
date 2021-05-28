@@ -16,7 +16,7 @@ import java.net.URL;
 @Component
 public class StageListener implements ApplicationListener<JavafxApplication.StageReadyEvent> {
 
-    private final String applicationTitle = "Title";
+    private final String applicationTitle = "Quizzl";
     private final Resource fxml;
     private final ApplicationContext applicationContext;
 

@@ -1,5 +1,7 @@
 package com.quizzl.app.controller.manageFlashcards;
 
+import com.quizzl.app.controller.ExportCsvController;
+import com.quizzl.app.controller.ImportCsvController;
 import com.quizzl.app.model.Flashcard;
 import com.quizzl.app.model.FlashcardStaple;
 import com.quizzl.app.service.FlashcardService;
@@ -134,32 +136,31 @@ public class ManageFlashcardsController {
         stage.showAndWait();
     }
 
-    public void updateStaple(String name){
+    public void importStaple(ActionEvent actionEvent) throws IOException
+    {
+        FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/manageFlashcardsViews/ImportFlashcardsView.fxml");
+        Parent parent = loader.load();
 
-        allStaples = stapleService.findAll();
-        currentStaple = stapleService.findOne(currentStaple.getId());
+        ImportCsvController controller = loader.getController();
 
-        stapleListDropdown.setItems(FXCollections.observableList(allStaples.stream()
-                .map(FlashcardStaple::getName)
-                .collect(Collectors.toList())));
-
-        stapleListDropdown.getSelectionModel().select(name);
-
-        tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
+        Scene scene = new Scene(parent, 400, 200);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 
-    public void updateAll(){
-        allStaples = stapleService.findAll();
-        currentStaple = stapleService.findOne(currentStaple.getId());
+    public void exportStaple(ActionEvent actionEvent) throws IOException
+    {
+        FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/manageFlashcardsViews/ExportFlashcardsView.fxml");
+        Parent parent = loader.load();
 
-        tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
-    }
+        ExportCsvController controller = loader.getController();
 
-    public void importStaple(ActionEvent actionEvent) {
-
-    }
-
-    public void exportStaple(ActionEvent actionEvent) {
-
+        Scene scene = new Scene(parent, 400, 200);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 }

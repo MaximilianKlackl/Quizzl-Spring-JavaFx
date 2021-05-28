@@ -1,19 +1,16 @@
 package com.quizzl.app.controller;
 
-import com.quizzl.app.model.FlashcardStaple;
 import com.quizzl.app.repository.FlashcardRepository;
 import com.quizzl.app.repository.FlashcardStapleRepository;
 import com.quizzl.app.util.CsvUtilities;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+
 import javafx.scene.control.TextField;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
+import java.io.IOException;
+
 
 @Component
 public class ImportCsvController
@@ -32,8 +29,7 @@ public class ImportCsvController
     }
 
     @FXML
-    private void importStaple()
-    {
+    private void importStaple() throws IOException {
         flashcardStapleRepository.save(CsvUtilities.importCards(filePath.getText()));
     }
 }

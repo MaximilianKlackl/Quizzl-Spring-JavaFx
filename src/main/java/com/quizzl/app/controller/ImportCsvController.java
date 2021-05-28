@@ -12,15 +12,6 @@ import java.io.IOException;
 @Component
 public class ImportCsvController
 {
-
-    private final FlashcardRepository flashcardRepository;
-
-    @Autowired
-    public ImportCsvController(FlashcardRepository flashcardRepository)
-    {
-        this.flashcardRepository = flashcardRepository;
-    }
-
     @FXML
     private TextField filePath;
 

@@ -163,4 +163,25 @@ public class ManageFlashcardsController {
         stage.setScene(scene);
         stage.showAndWait();
     }
+
+    public void updateStaple(String name){
+
+        allStaples = stapleService.findAll();
+        currentStaple = stapleService.findOne(currentStaple.getId());
+
+        stapleListDropdown.setItems(FXCollections.observableList(allStaples.stream()
+                .map(FlashcardStaple::getName)
+                .collect(Collectors.toList())));
+
+        stapleListDropdown.getSelectionModel().select(name);
+
+        tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
+    }
+
+    public void updateAll(){
+        allStaples = stapleService.findAll();
+        currentStaple = stapleService.findOne(currentStaple.getId());
+
+        tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
+    }
 }

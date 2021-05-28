@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface IStatisticService {
 
-    List<Flashcard> findAll();
-    Flashcard findOne(Long id);
+    List<Statistic> findAll();
+    Statistic findOne(Long id);
     void save(Statistic statistic);
     void deleteById(Long id);
 }

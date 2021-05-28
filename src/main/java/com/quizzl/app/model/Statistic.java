@@ -14,15 +14,14 @@ import java.util.List;
 public class Statistic extends BaseEntity {
 
     @OneToOne(
-            mappedBy = "statistic",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
     private FlashcardStaple cardList;
 
     @OneToMany(
-            mappedBy = "statistic",
             cascade = {CascadeType.ALL},
             fetch = FetchType.LAZY)
+    @JoinColumn(name="FLASHCARD_LIST_ID")
     private List<Flashcard> wrongCards;
 
     private int timeSpend; // in minutes

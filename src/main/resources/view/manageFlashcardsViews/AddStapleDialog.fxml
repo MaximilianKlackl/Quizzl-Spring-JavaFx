@@ -4,14 +4,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:controller="com.quizzl.app.controller.manageFlashcards.AddCardController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:controller="com.quizzl.app.controller.manageFlashcards.AddStapleController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Question"/>
-            <TextField fx:id="questionField"/>
-            <Label text="Answer"/>
-            <TextField fx:id="answerField"/>
+            <Label text="Name"/>
+            <TextField fx:id="nameField"/>
+            <Label text="Description"/>
+            <TextField fx:id="descriptionField"/>
+            <Label text="Topic"/>
+            <TextField fx:id="topicFiled"/>
             <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
                <children>
                   <Button mnemonicParsing="false" text="Cancel" onAction="#cancel"/>

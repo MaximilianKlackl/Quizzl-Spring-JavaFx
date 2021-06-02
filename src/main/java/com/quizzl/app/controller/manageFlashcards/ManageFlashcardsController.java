@@ -2,8 +2,8 @@ package com.quizzl.app.controller.manageFlashcards;
 
 import com.quizzl.app.controller.ExportCsvController;
 import com.quizzl.app.controller.ImportCsvController;
-import com.quizzl.app.model.Flashcard;
-import com.quizzl.app.model.FlashcardStaple;
+import com.quizzl.app.model.dbEntities.Flashcard;
+import com.quizzl.app.model.dbEntities.FlashcardStaple;
 import com.quizzl.app.service.FlashcardService;
 import com.quizzl.app.service.FlashcardStapleService;
 import com.quizzl.app.util.SpringFxmlLoader;

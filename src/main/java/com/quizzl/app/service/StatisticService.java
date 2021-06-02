@@ -1,7 +1,6 @@
 package com.quizzl.app.service;
 
-import com.quizzl.app.model.Flashcard;
-import com.quizzl.app.model.Statistic;
+import com.quizzl.app.model.dbEntities.Statistic;
 import com.quizzl.app.repository.StatisticRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 

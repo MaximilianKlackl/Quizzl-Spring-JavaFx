@@ -1,4 +1,4 @@
-package com.quizzl.app.model;
+package com.quizzl.app.model.dbEntities;
 
 import lombok.*;
 

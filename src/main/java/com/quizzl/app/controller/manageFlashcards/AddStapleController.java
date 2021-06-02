@@ -1,6 +1,6 @@
 package com.quizzl.app.controller.manageFlashcards;
 
-import com.quizzl.app.model.FlashcardStaple;
+import com.quizzl.app.model.dbEntities.FlashcardStaple;
 import com.quizzl.app.service.FlashcardStapleService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

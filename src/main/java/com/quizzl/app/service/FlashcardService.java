@@ -1,6 +1,6 @@
 package com.quizzl.app.service;
 
-import com.quizzl.app.model.Flashcard;
+import com.quizzl.app.model.dbEntities.Flashcard;
 import com.quizzl.app.repository.FlashcardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

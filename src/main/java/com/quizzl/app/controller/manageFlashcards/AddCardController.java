@@ -1,12 +1,10 @@
 package com.quizzl.app.controller.manageFlashcards;
 
-import com.quizzl.app.model.Flashcard;
-import com.quizzl.app.model.FlashcardStaple;
+import com.quizzl.app.model.dbEntities.Flashcard;
+import com.quizzl.app.model.dbEntities.FlashcardStaple;
 import com.quizzl.app.service.FlashcardService;
-import com.quizzl.app.util.SpringFxmlLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;

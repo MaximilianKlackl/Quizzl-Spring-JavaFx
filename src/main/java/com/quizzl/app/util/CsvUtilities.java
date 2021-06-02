@@ -1,8 +1,7 @@
 package com.quizzl.app.util;
 
-import com.quizzl.app.model.Flashcard;
-import com.quizzl.app.model.FlashcardStaple;
-import com.quizzl.app.repository.FlashcardStapleRepository;
+import com.quizzl.app.model.dbEntities.Flashcard;
+import com.quizzl.app.model.dbEntities.FlashcardStaple;
 import com.quizzl.app.service.FlashcardStapleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

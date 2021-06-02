@@ -1,6 +1,6 @@
 package com.quizzl.app.repository;
 
-import com.quizzl.app.model.FlashcardStaple;
+import com.quizzl.app.model.dbEntities.FlashcardStaple;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,6 @@
 package com.quizzl.app.service;
 
-import com.quizzl.app.model.Flashcard;
-import com.quizzl.app.model.Statistic;
+import com.quizzl.app.model.dbEntities.Statistic;
 
 import java.util.List;
 

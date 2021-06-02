@@ -1,8 +1,9 @@
 package com.quizzl.app.util;
-import com.quizzl.app.model.Flashcard;
-import com.quizzl.app.model.FlashcardStaple;
+import com.quizzl.app.model.dbEntities.Flashcard;
+import com.quizzl.app.model.dbEntities.FlashcardStaple;
 import com.quizzl.app.service.IFlashcardService;
 import com.quizzl.app.service.IFlashcardStapleService;
+import com.quizzl.app.service.OpenTriviaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -28,6 +29,7 @@ public class CommandLineUtil implements CommandLineRunner {
         createDataSetWithPrefix("Nice");
         createDataSetWithPrefix("Test");
         createDataSetWithPrefix("Brrrr");
+
     }
 
     public void createDataSetWithPrefix(String prefix){

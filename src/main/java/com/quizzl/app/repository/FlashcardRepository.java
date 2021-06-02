@@ -1,6 +1,6 @@
 package com.quizzl.app.repository;
 
-import com.quizzl.app.model.Flashcard;
+import com.quizzl.app.model.dbEntities.Flashcard;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

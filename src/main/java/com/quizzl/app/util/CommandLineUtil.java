@@ -3,13 +3,11 @@ import com.quizzl.app.model.dbEntities.Flashcard;
 import com.quizzl.app.model.dbEntities.FlashcardStaple;
 import com.quizzl.app.service.IFlashcardService;
 import com.quizzl.app.service.IFlashcardStapleService;
-import com.quizzl.app.service.OpenTriviaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-
 
 @Component
 public class CommandLineUtil implements CommandLineRunner {

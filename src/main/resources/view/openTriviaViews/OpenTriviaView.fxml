@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.openTrivia.OpenTriviaController">
+    <left>
+        <fx:include source="../NavBar.fxml" />
+    </left>
+    <top>
+        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" prefHeight="80.0" prefWidth="161.0" HBox.hgrow="NEVER">
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                    <children>
+                        <Label text="Quizzl">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets top="20.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Train your Knowledge">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+
+            </children>
+        </HBox>
+    </top>
+   <center>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="570.0" prefWidth="264.0" spacing="10.0" HBox.hgrow="NEVER">
+               <children>
+                  <Label text="Open Trivia">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="17.0" prefWidth="220.0" spacing="20.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Label text="Category" />
+                        <ComboBox fx:id="categoryComboBox" prefHeight="26.0" prefWidth="170.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="17.0" prefWidth="220.0" spacing="20.0">
+                     <children>
+                        <Label text="Difiiculty" />
+                        <ComboBox fx:id="difficultyComboBox" prefHeight="26.0" prefWidth="170.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="301.0" prefHeight="17.0" prefWidth="220.0" spacing="20.0">
+                     <children>
+                        <Label text="Questions" />
+                        <Slider fx:id="questionSlider" prefHeight="14.0" prefWidth="173.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="100.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#startAction" text="Start" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="100.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

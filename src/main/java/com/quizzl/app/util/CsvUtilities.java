@@ -19,7 +19,6 @@ public class CsvUtilities {
     CsvUtilities(FlashcardStapleService service)
     {
         CsvUtilities.service = service;
-
     }
 
     public static void exportCards(FlashcardStaple staple, String path) throws IOException {

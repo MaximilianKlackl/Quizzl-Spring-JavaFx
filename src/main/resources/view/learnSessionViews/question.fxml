@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="620.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutX="669.0" layoutY="476.0" stroke="BLACK" strokeType="INSIDE" width="356.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="394.0" layoutX="669.0" layoutY="75.0" stroke="BLACK" strokeType="INSIDE" width="356.0" />
+      <Button layoutX="789.0" layoutY="363.0" mnemonicParsing="false" text="SKIP QUESITION" textFill="#0026ff" />
+      <Button layoutX="792.0" layoutY="503.0" mnemonicParsing="false" text="STOP SESSION" textFill="RED" />
+      <Button layoutX="96.0" layoutY="486.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="181.0" text="Turn" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="394.0" layoutX="96.0" layoutY="73.0" stroke="BLACK" strokeType="INSIDE" width="556.0" />
+      <Label layoutX="287.0" layoutY="262.0" text="You were right/wrong" />
+      <Label layoutX="803.0" layoutY="163.0" text="🕐 time">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="803.0" layoutY="238.0" text="🕐📈 statistics">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="284.0" layoutY="486.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="181.0" styleClass="button_stopDelete" text="Rigth" />
+      <Button layoutX="471.0" layoutY="486.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="181.0" styleClass="button_stopDelete"  text="Wrong" />
+   </children>
+</AnchorPane>

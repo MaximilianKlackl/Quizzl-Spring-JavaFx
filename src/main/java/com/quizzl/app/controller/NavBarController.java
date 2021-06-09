@@ -32,7 +32,7 @@ public class NavBarController {
             }
             case "Start Learn Session": {
 
-                FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/learnSessionViews/learnSessionView.fxml");
+                FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/learnSessionViews/startLearnSessionView.fxml");
                 newScene = loader.load();
                 break;
             }

@@ -5,41 +5,34 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="200.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.ExportCsvController">
+<BorderPane prefHeight="160.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.ImportCsvController">
    <center>
       <VBox prefHeight="224.0" prefWidth="467.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <children>
-                  <ComboBox fx:id="flashStapleComboBox" prefHeight="31.0" prefWidth="185.0" promptText="Flashcard Staple">
-                     <HBox.margin>
-                        <Insets left="25.0" top="-20.0" />
-                     </HBox.margin>
-                  </ComboBox>
-               </children>
-            </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="filePathTextLabel" prefHeight="33.0" prefWidth="468.0" promptText="Path" style="-fx-border-color: grey;">
+                  <TextField fx:id="filePathTextLabel" prefHeight="33.0" prefWidth="468.0" promptText="Select File ..." style="-fx-border-color: grey;">
                      <HBox.margin>
                         <Insets left="25.0" top="15.0" />
                      </HBox.margin>
                   </TextField>
                   <Button fx:id="searchFileButton" mnemonicParsing="false" style="-fx-background-color: lightgrey; -fx-border-color: grey;" text="Search">
-                     <padding>
-                        <Insets bottom="5.0" left="11.0" right="10.0" top="5.0" />
-                     </padding>
                      <HBox.margin>
                         <Insets top="15.0" />
                      </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="11.0" right="10.0" top="5.0" />
+                     </padding>
                   </Button>
                </children>
                <VBox.margin>
-                  <Insets top="-32.0" />
+                  <Insets />
                </VBox.margin>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: stretch;">
@@ -47,15 +40,15 @@
                   <HBox prefHeight="100.0" prefWidth="399.0" />
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#handleCloseButtonAction" text="Cancel">
-                           <padding>
-                              <Insets bottom="5.0" left="12.0" right="12.0" top="5.0" />
-                           </padding>
+                        <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#handleCancelButtonAction" text="Cancel">
                            <HBox.margin>
                               <Insets left="28.0" top="18.0" />
                            </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="12.0" right="12.0" top="5.0" />
+                           </padding>
                         </Button>
-                        <Button fx:id="exportButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="68.0" text="Export">
+                        <Button fx:id="importButton" mnemonicParsing="false" onAction="#handleImportFlashcardStapleAction" prefHeight="31.0" prefWidth="68.0" text="Import">
                            <HBox.margin>
                               <Insets left="5.0" top="18.0" />
                            </HBox.margin>
@@ -74,7 +67,7 @@
       </VBox>
    </center>
    <top>
-      <Label alignment="TOP_LEFT" text="Export Flashcards" BorderPane.alignment="CENTER_LEFT">
+      <Label alignment="TOP_LEFT" text="Import Flashcards" BorderPane.alignment="CENTER_LEFT">
          <font>
             <Font size="24.0" />
          </font>

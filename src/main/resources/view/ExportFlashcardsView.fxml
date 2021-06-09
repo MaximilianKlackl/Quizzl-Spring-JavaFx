@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="200.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.ExportCsvController">
+<BorderPane prefHeight="200.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <VBox prefHeight="224.0" prefWidth="467.0" BorderPane.alignment="CENTER">
          <children>
@@ -24,12 +24,12 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="filePathTextLabel" prefHeight="33.0" prefWidth="468.0" promptText="Path" style="-fx-border-color: grey;">
+                  <TextField prefHeight="33.0" prefWidth="468.0" promptText="Path" style="-fx-border-color: grey;">
                      <HBox.margin>
                         <Insets left="25.0" top="15.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button fx:id="searchFileButton" mnemonicParsing="false" style="-fx-background-color: lightgrey; -fx-border-color: grey;" text="Search">
+                  <Button mnemonicParsing="false" style="-fx-background-color: lightgrey; -fx-border-color: grey;" text="Search">
                      <padding>
                         <Insets bottom="5.0" left="11.0" right="10.0" top="5.0" />
                      </padding>
@@ -47,17 +47,17 @@
                   <HBox prefHeight="100.0" prefWidth="399.0" />
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#handleCloseButtonAction" text="Cancel">
+                        <Button cancelButton="true" mnemonicParsing="false" text="Cancel">
                            <padding>
                               <Insets bottom="5.0" left="12.0" right="12.0" top="5.0" />
                            </padding>
                            <HBox.margin>
-                              <Insets left="28.0" top="18.0" />
+                              <Insets left="28.0" top="15.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="exportButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="68.0" text="Export">
+                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="68.0" text="Export">
                            <HBox.margin>
-                              <Insets left="5.0" top="18.0" />
+                              <Insets left="5.0" top="15.0" />
                            </HBox.margin>
                         </Button>
                      </children>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1080.0" styleClass="anchorpane" stylesheets="@negus.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+      <HBox layoutX="515.0" layoutY="114.0" prefHeight="53.0" prefWidth="494.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="114.0">
+         <children>
+              <Button mnemonicParsing="false" stylesheets="@negus.css" text="+ NEW STAPLE" textFill="#0026ff">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+              <Button mnemonicParsing="false" stylesheets="@negus.css" text="+ ADD CARD" textFill="#0026ff">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+              <Button mnemonicParsing="false" text="+ IMPORT" textFill="#0026ff">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+              <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="91.0" text="+ EXPORT" textFill="#0026ff">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox layoutX="249.0" layoutY="168.0" prefHeight="646.0" prefWidth="751.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="168.0">
+         <children>
+              <TableView prefHeight="646.0" prefWidth="751.0" styleClass="tableView" stylesheets="@negus.css">
+                  <columns>
+                      <TableColumn prefWidth="75.0" styleClass="TableColumn">
+                          <graphic>
+                              <CheckBox mnemonicParsing="false" text="ID" />
+                          </graphic>
+                      </TableColumn>
+                      <TableColumn prefWidth="243.0" styleClass="TableColumn" text="Question" />
+                      <TableColumn prefWidth="299.0" styleClass="TableColumn" text="Answer" />
+                      <TableColumn prefWidth="133.0" styleClass="TableColumn" text="Update" />
+                  </columns>
+              </TableView>
+         </children>
+      </HBox>
+      <AnchorPane layoutX="26.0" layoutY="168.0" prefHeight="646.0" prefWidth="200.0" styleClass="navbar" stylesheets="@negus.css">
+         <children>
+              <Button layoutX="18.0" layoutY="19.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="170.0" text="Manage Flashcards" />
+              <Button layoutX="18.0" layoutY="74.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="170.0" text="Start Learning" />
+              <Button layoutX="18.0" layoutY="132.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="170.0" text="OpenTrivia" />
+         </children>
+      </AnchorPane>
+      <HBox layoutX="852.0" layoutY="833.0" prefHeight="33.0" prefWidth="170.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="833.0">
+         <children>
+              <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="168.0" styleClass="button_stopDelete" stylesheets="@negus.css" text="- DELETE SELECTED" textFill="RED">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <Label layoutX="250.0" layoutY="66.0" prefHeight="36.0" prefWidth="236.0" styleClass="label1" stylesheets="@negus.css" text="Manage Flashcards">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="54.0" prefHeight="116.0" prefWidth="200.0" styleClass="labelQuizzl" stylesheets="@negus.css" text="  Quizzl">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="249.0" layoutY="125.0" prefWidth="150.0" promptText="Subject" styleClass="dropdown" stylesheets="@negus.css" />
+    </children>
+</AnchorPane>

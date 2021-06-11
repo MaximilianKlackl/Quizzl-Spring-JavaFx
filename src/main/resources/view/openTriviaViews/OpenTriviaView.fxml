@@ -67,8 +67,8 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="301.0" prefHeight="17.0" prefWidth="220.0" spacing="20.0">
                      <children>
-                        <Label text="Questions" />
-                        <Slider fx:id="questionSlider" prefHeight="14.0" prefWidth="173.0" />
+                        <Label fx:id="questionSliderLabel" text="Questions [10]" />
+                        <Slider fx:id="questionSlider" blockIncrement="1" max="20" min="5" prefHeight="14.0" prefWidth="156.0" value="10" />
                      </children>
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="100.0" VBox.vgrow="NEVER">

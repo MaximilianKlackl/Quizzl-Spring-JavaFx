@@ -64,6 +64,8 @@ public class ManageFlashcardsController {
         tableView.getColumns().get(1).prefWidthProperty().bind(tableView.widthProperty().multiply(0.45));
         tableView.getColumns().get(2).prefWidthProperty().bind(tableView.widthProperty().multiply(0.45));
 
+
+
         // staple dropdown default value
         stapleListDropdown.getSelectionModel().selectFirst();
 

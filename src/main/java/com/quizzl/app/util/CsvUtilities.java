@@ -21,6 +21,11 @@ public class CsvUtilities {
 
     }
 
+    /**
+     * @param staple Staple Object to export
+     * @param path URI where to export
+     * @throws IOException Handle IO Exception
+     */
     public static void exportCards(FlashcardStaple staple, String path) throws IOException {
         List<Flashcard> flashcardList = staple.getFlashcardList();
         int listIteratorCounter = 0;
@@ -36,7 +41,10 @@ public class CsvUtilities {
         }
     }
 
-
+    /**
+     * @param path URI from import File
+     * @throws IOException Handle IO Exception
+     */
     public static void importCards(String path) throws IOException {
 
         FlashcardStaple importedFlashcardStaple = new FlashcardStaple("New", "New", "New", null,null);

@@ -7,6 +7,7 @@ import lombok.*;
 @Getter
 @NoArgsConstructor @AllArgsConstructor
 @ToString
+@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Question {
 

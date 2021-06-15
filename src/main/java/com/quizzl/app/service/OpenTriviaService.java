@@ -56,7 +56,9 @@ public class OpenTriviaService implements IOpenTriviaService {
 
         // Example Url: https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=boolean
         // difficulty with empty string means not difficulty
-        String queryParameter = "?amount=" + amount + "&category="+ categoryId + "&difficulty=" + level.toLowerCase();
+        level = level.equals("any") ? "" : level;
+
+        String queryParameter = "?amount=" + amount + "&category="+ categoryId + "&difficulty=" + level.toLowerCase() + "&type=boolean";
         String response = restTemplate.getForObject(URL + "api.php" + queryParameter, String.class);
 
         // use QuestionJsonWrapper as a wrapper class to properly parse json

@@ -22,6 +22,9 @@ public class OpenTriviaService implements IOpenTriviaService {
         this.restTemplate = new RestTemplate();
     }
 
+    /**
+     * @return Returns a List of {@link Category} using Open Trivia API
+     */
     public List<Category> getAllCategories(){
 
         // do request
@@ -42,12 +45,20 @@ public class OpenTriviaService implements IOpenTriviaService {
         return categories;
     }
 
+    /**
+     * @param categoryId Id for specific Category
+     * @param amount How many question to fetch
+     * @param level Difficulty of the questions
+     * @return Returns a List of {@link Question}
+     */
     @Override
     public List<Question> getQuestionsByCategory(int categoryId, int amount, String level) {
 
         // Example Url: https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=boolean
         // difficulty with empty string means not difficulty
-        String queryParameter = "?amount=" + amount + "&category="+ categoryId + "&difficulty=" + level.toLowerCase();
+        level = level.equals("any") ? "" : level;
+
+        String queryParameter = "?amount=" + amount + "&category="+ categoryId + "&difficulty=" + level.toLowerCase() + "&type=boolean";
         String response = restTemplate.getForObject(URL + "api.php" + queryParameter, String.class);
 
         // use QuestionJsonWrapper as a wrapper class to properly parse json

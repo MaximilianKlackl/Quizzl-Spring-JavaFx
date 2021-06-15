@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface IOpenTriviaService {
 
-    public List<Category> getAllCategories();
-    public List<Question> getQuestionsByCategory(int categoryId, int amount, String level);
+    List<Category> getAllCategories();
+    List<Question> getQuestionsByCategory(int categoryId, int amount, String level);
 }

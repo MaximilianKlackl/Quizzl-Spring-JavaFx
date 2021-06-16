@@ -29,6 +29,7 @@ import java.util.stream.Collectors;
 @Component
 public class ManageFlashcardsController {
 
+    @FXML private TableColumn buttonColumn;
     @FXML private Button deleteSelectedButton;
     @FXML private TableView<Flashcard> tableView;
     @FXML private ComboBox<String> stapleListDropdown;
@@ -45,7 +46,6 @@ public class ManageFlashcardsController {
         this.stapleService = stapleService;
         this.flashcardService = flashcardService;
     }
-
 
     @FXML
     public void initialize() {
@@ -64,8 +64,6 @@ public class ManageFlashcardsController {
         tableView.getColumns().get(1).prefWidthProperty().bind(tableView.widthProperty().multiply(0.45));
         tableView.getColumns().get(2).prefWidthProperty().bind(tableView.widthProperty().multiply(0.45));
 
-
-
         // staple dropdown default value
         stapleListDropdown.getSelectionModel().selectFirst();
 
@@ -77,6 +75,7 @@ public class ManageFlashcardsController {
             selectedFlashcards = new ArrayList<>(change.getList());
             deleteSelectedButton.setText("Delete Selected [" + size + "]");
         });
+
     }
 
     public void dropDownListener(ActionEvent actionEvent) {
@@ -157,8 +156,6 @@ public class ManageFlashcardsController {
         FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/manageFlashcardsViews/ExportFlashcardsView.fxml");
         Parent parent = loader.load();
 
-        ExportCsvController controller = loader.getController();
-
         Scene scene = new Scene(parent, 400, 200);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -185,5 +182,46 @@ public class ManageFlashcardsController {
         currentStaple = stapleService.findOne(currentStaple.getId());
 
         tableView.setItems(FXCollections.observableList(currentStaple.getFlashcardList()));
+    }
+
+    public void viewStatistics(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/manageFlashcardsViews/StatsticView.fxml");
+        Parent parent = loader.load();
+
+        StatisticController controller = loader.getController();
+        controller.setData(currentStaple);
+
+        Scene scene = new Scene(parent, 400, 200);
+        Stage stage = new Stage();
+        stage.setResizable(false);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
+
+    public void updateQuestionColumn(TableColumn.CellEditEvent cellEditEvent) {
+
+        Flashcard flashcard = currentStaple.getFlashcardList().stream()
+                .filter(f -> f.getQuestion().equals(cellEditEvent.getOldValue()))
+                .findFirst()
+                .orElse(null);
+
+        assert flashcard != null;
+        flashcard.setQuestion((String) cellEditEvent.getNewValue());
+
+        flashcardService.save(flashcard);
+    }
+
+    public void updateAnswerColumn(TableColumn.CellEditEvent cellEditEvent) {
+
+        Flashcard flashcard = currentStaple.getFlashcardList().stream()
+                .filter(f -> f.getAnswer().equals(cellEditEvent.getOldValue()))
+                .findFirst()
+                .orElse(null);
+
+        assert flashcard != null;
+        flashcard.setAnswer((String) cellEditEvent.getNewValue());
+
+        flashcardService.save(flashcard);
     }
 }

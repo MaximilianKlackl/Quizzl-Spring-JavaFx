@@ -3,10 +3,12 @@ package com.quizzl.app.service;
 import com.quizzl.app.model.dbEntities.Statistic;
 import com.quizzl.app.repository.StatisticRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
+@Service
 public class StatisticService implements IStatisticService{
 
     private final StatisticRepository repository;

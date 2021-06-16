@@ -20,7 +20,7 @@ public class FlashcardStaple extends BaseEntity{
 
     @OneToOne(
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY)
+            fetch = FetchType.EAGER)
     @JoinColumn(name = "STATISTIC_ID")
     private Statistic statistic;
 

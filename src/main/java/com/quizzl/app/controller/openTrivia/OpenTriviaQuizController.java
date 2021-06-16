@@ -166,7 +166,6 @@ public class OpenTriviaQuizController {
 
     private long parseTime(){
         String timeString = timerLabel.getText();
-        System.out.println(timeString);
         return Long.parseLong(timeString.split(":")[0]) * 60+ Long.parseLong(timeString.split(":")[1]);
     }
 }

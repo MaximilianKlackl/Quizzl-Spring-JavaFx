@@ -1,7 +1,5 @@
 package com.quizzl.app.controller.manageFlashcards;
 
-import com.quizzl.app.controller.ExportCsvController;
-import com.quizzl.app.controller.ImportCsvController;
 import com.quizzl.app.model.dbEntities.Flashcard;
 import com.quizzl.app.model.dbEntities.FlashcardStaple;
 import com.quizzl.app.service.FlashcardService;
@@ -143,8 +141,9 @@ public class ManageFlashcardsController {
         Parent parent = loader.load();
 
         ImportCsvController controller = loader.getController();
+        controller.setData(this);
 
-        Scene scene = new Scene(parent, 400, 200);
+        Scene scene = new Scene(parent);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
@@ -156,7 +155,10 @@ public class ManageFlashcardsController {
         FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/manageFlashcardsViews/ExportFlashcardsView.fxml");
         Parent parent = loader.load();
 
-        Scene scene = new Scene(parent, 400, 200);
+        ExportCsvController controller = loader.getController();
+        controller.setData(currentStaple);
+
+        Scene scene = new Scene(parent);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);

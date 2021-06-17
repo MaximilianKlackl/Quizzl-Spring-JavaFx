@@ -51,7 +51,7 @@ public class CsvUtilities {
     public static void importCards(String path, String name, String description, String topic) throws IOException {
 
         List<Flashcard> flashcardList = new ArrayList<>();
-        FlashcardStaple importedFlashcardStaple = new FlashcardStaple("New", "New", "New", null,null);
+        FlashcardStaple importedFlashcardStaple = new FlashcardStaple(name, description, topic, null,null);
 
         String[] data;
         String line;

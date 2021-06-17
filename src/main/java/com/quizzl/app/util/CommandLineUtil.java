@@ -41,7 +41,7 @@ public class CommandLineUtil implements CommandLineRunner {
         staple.setStatistic(statistic);
 
         for(int i = 0; i < 20; i++){
-            staple.getFlashcardList().add(new Flashcard("Test" + prefix, "Test" + prefix, null, staple));
+            staple.getFlashcardList().add(new Flashcard("Test" + prefix + i, "Test" + prefix + i, null, staple));
         }
 
         flashcardStapleService.save(staple);

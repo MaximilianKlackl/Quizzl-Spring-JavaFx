@@ -1,18 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="172.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.ImportCsvController">
-    <children>
-        <TextField layoutX="30.0" layoutY="70.0" prefHeight="31.0" prefWidth="473.0" text="Staple" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0" />
-        <Button layoutX="521.0" layoutY="111.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" text="IMPORT" textFill="#0026ff" AnchorPane.bottomAnchor="34.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="111.0" />
-      <Button layoutX="515.0" layoutY="70.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" text="Browse">
-         <font>
-            <Font name="Arial" size="15.0" />
-         </font>
-      </Button>
-      <ComboBox layoutX="30.0" layoutY="33.0" prefWidth="150.0" />
-    </children>
-</AnchorPane>
+<BorderPane prefHeight="300.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.manageFlashcards.ImportCsvController">
+    <center>
+        <VBox alignment="CENTER_LEFT" spacing="10.0">
+            <children>
+                <Label text="Import Flashcards from CSV">
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <HBox alignment="CENTER_LEFT" layoutX="35.0" layoutY="143.0" prefHeight="33.0" prefWidth="501.0" spacing="10.0">
+                    <children>
+                        <Label minWidth="30.0" prefHeight="18.0" prefWidth="100.0" text="Staple Name" />
+                        <TextField fx:id="stapleNameField" prefHeight="26.0" prefWidth="418.0" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="501.0" spacing="10.0" VBox.vgrow="NEVER">
+                    <children>
+                        <Label minWidth="50.0" prefHeight="18.0" prefWidth="100.0" text="Description" />
+                        <TextField fx:id="descriptionField" prefHeight="26.0" prefWidth="422.0" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" layoutX="35.0" layoutY="120.0" prefHeight="33.0" prefWidth="501.0" spacing="10.0">
+                    <children>
+                        <Label prefHeight="18.0" prefWidth="100.0" text="Topic" />
+                        <TextField fx:id="topicField" prefHeight="26.0" prefWidth="426.0" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="1.0" prefWidth="501.0" spacing="10.0">
+                    <children>
+                        <TextField fx:id="filePathField" prefHeight="26.0" prefWidth="348.0" text="C://Users/User/myFlashcards.csv" HBox.hgrow="ALWAYS" />
+                        <Button minWidth="50.0" mnemonicParsing="false" onAction="#openFileBrowser" prefHeight="26.0" prefWidth="100.0" text="Browse" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" prefHeight="54.0" prefWidth="501.0" spacing="10.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#importList" text="Import" />
+                        <Button mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+            </padding></VBox>
+    </center>
+</BorderPane>

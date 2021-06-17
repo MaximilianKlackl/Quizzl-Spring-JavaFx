@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 @Component
@@ -31,11 +32,9 @@ public class CommandLineUtil implements CommandLineRunner {
         createDataSetWithPrefix("Nice");
         createDataSetWithPrefix("Test");
         createDataSetWithPrefix("Brrrr");
-
     }
 
-    public void createDataSetWithPrefix(String prefix){
-
+    public void createDataSetWithPrefix(String prefix) throws IOException {
 
         FlashcardStaple staple = new FlashcardStaple("Test"+ prefix, "Test" + prefix, "Test" +prefix, null, new ArrayList<>());
         Statistic statistic = new Statistic(staple, null, 20, 0.2f);

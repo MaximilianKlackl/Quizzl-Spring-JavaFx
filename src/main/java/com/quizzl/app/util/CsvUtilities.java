@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -30,7 +31,9 @@ public class CsvUtilities {
         List<Flashcard> flashcardList = staple.getFlashcardList();
         int listIteratorCounter = 0;
 
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
+        File file = new File(path + "\\" + staple.getName() + ".csv");
+
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
             while (flashcardList.size() > listIteratorCounter) {
                 bw.write(flashcardList.get(listIteratorCounter).getQuestion());
                 bw.write(";");
@@ -45,8 +48,9 @@ public class CsvUtilities {
      * @param path URI from import File
      * @throws IOException Handle IO Exception
      */
-    public static void importCards(String path) throws IOException {
+    public static void importCards(String path, String name, String description, String topic) throws IOException {
 
+        List<Flashcard> flashcardList = new ArrayList<>();
         FlashcardStaple importedFlashcardStaple = new FlashcardStaple("New", "New", "New", null,null);
 
         String[] data;
@@ -60,10 +64,11 @@ public class CsvUtilities {
                 String answer = data[1];
 
                 Flashcard flashcard = new Flashcard(question, answer, null, importedFlashcardStaple);
-                importedFlashcardStaple.getFlashcardList().add(flashcard);
+                flashcardList.add(flashcard);
             }
         }
 
+        importedFlashcardStaple.setFlashcardList(flashcardList);
         service.save(importedFlashcardStaple);
     }
 }

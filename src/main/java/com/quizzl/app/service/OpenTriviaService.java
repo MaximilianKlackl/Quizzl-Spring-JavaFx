@@ -54,7 +54,6 @@ public class OpenTriviaService implements IOpenTriviaService {
     @Override
     public List<Question> getQuestionsByCategory(int categoryId, int amount, String level) {
 
-        // Example Url: https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=boolean
         // difficulty with empty string means not difficulty
         level = level.equals("any") ? "" : level;
 

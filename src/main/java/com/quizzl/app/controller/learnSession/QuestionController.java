@@ -1,10 +1,6 @@
 package com.quizzl.app.controller.learnSession;
 
-import com.quizzl.app.controller.manageFlashcards.AddCardController;
 import com.quizzl.app.model.Flashcard;
-import com.quizzl.app.model.FlashcardStaple;
-import com.quizzl.app.repository.FlashcardRepository;
-import com.quizzl.app.repository.FlashcardStapleRepository;
 import com.quizzl.app.util.SpringFxmlLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,16 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -35,18 +27,20 @@ public class QuestionController
     private boolean repeated;
 
     @FXML private Label statistic;
+    @FXML private Label timeStatistic;
     @FXML private Label questionAnswer;
 
     private List<Flashcard> flashcardStaple;
     private List<Flashcard> wrongCards;
 
-    public void setData(List<Flashcard> flashcardStaple, int questionAmount)
+    public void setData(List<Flashcard> flashcardStaple, boolean repeated, int questionAmount)
     {
         this.flashcardStaple = new LinkedList<>(flashcardStaple);
         this.current = 0;
-        this.questionAmount = this.flashcardStaple.size();
-        this.statistic.setText(questionAmount + "/" + 0);
+        this.questionAmount = questionAmount;
+        this.statistic.setText(this.questionAmount + "/" + 0);
         this.questionAnswer.setText(flashcardStaple.get(current).getQuestion());
+        this.repeated = repeated;
     }
 
     @FXML private void initialize()
@@ -54,6 +48,13 @@ public class QuestionController
         this.rightQuestions = 0;
         this.isQuestion = true;
         this.statistic.setText(questionAmount + "/" + rightQuestions);
+
+        this.wrongCards = new LinkedList<>();
+    }
+
+    @FXML private void stop(ActionEvent event) throws IOException
+    {
+        end(event);
     }
 
     @FXML private void turn()
@@ -68,12 +69,17 @@ public class QuestionController
         this.isQuestion = !isQuestion;
     }
 
-    @FXML private void setAnswer(ActionEvent event) throws IOException {
+    @FXML private void setAnswer(ActionEvent event) throws IOException
+    {
         Button source  = (Button)event.getSource();
 
         if (source.getText().equals("Right"))
         {
             rightQuestions++;
+        }
+        else if (repeated)
+        {
+            wrongCards.add(flashcardStaple.get(current));
         }
 
         statistic.setText(questionAmount + "/" + rightQuestions);
@@ -82,7 +88,34 @@ public class QuestionController
 
         if (current == questionAmount)
         {
-            System.out.println("Correct Questions: " + rightQuestions + "\nWrong Questions: " + (questionAmount - rightQuestions));
+            end(event);
+        }
+        else
+        {
+            questionAnswer.setText(flashcardStaple.get(current).getQuestion());
+        }
+    }
+
+    @FXML void skip(ActionEvent event) throws IOException
+    {
+        current++;
+        questionAnswer.setText(flashcardStaple.get(current).getQuestion());
+
+        if (current == questionAmount)
+        {
+            end(event);
+        }
+        else
+        {
+            questionAnswer.setText(flashcardStaple.get(current).getQuestion());
+        }
+    }
+
+    private void end(ActionEvent event) throws IOException
+    {
+        //Checking to see if all cards have been iterated through
+
+        Button source  = (Button)event.getSource();
 
             // get new FXMLLoader
             FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/learnSessionViews/finishedSession.fxml");
@@ -91,7 +124,7 @@ public class QuestionController
             FinishedLessonController controller = loader.getController();
             controller.setDate(questionAmount, rightQuestions);
 
-            Scene scene = new Scene(parent, 720, 400);
+            Scene scene = new Scene(parent, 600, 400);
             Stage stage = new Stage();
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -108,19 +141,5 @@ public class QuestionController
             stage.setScene(scene);
             stage.setTitle("Quizzl");
             stage.show();
-        }
-        else
-        {
-            questionAnswer.setText(flashcardStaple.get(current).getQuestion());
-        }
-    }
-
-    @FXML void skip()
-    {
-        if (current < questionAmount)
-        {
-            current++;
-            questionAnswer.setText(flashcardStaple.get(current).getQuestion());
-        }
     }
 }

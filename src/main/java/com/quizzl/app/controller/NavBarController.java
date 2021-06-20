@@ -44,7 +44,7 @@ public class NavBarController {
         }
 
         if(newScene != null){
-            Scene scene = new Scene(newScene);
+            Scene scene = new Scene(newScene, 1280, 720);
             stage.setScene(scene);
             stage.setTitle("Quizzl");
             stage.show();

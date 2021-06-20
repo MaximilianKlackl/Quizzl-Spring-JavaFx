@@ -52,7 +52,7 @@ public class StartLearnSessionController
         stapleListDropdown.getSelectionModel().selectFirst();
     }
 
-    public void dropDownListener(ActionEvent actionEvent)
+    public void dropDownListener()
     {
         String selectedItem = stapleListDropdown.getSelectionModel().getSelectedItem();
         setCurrentStaple(selectedItem);
@@ -78,7 +78,22 @@ public class StartLearnSessionController
         FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/learnSessionViews/question.fxml");
         newScene = loader.load();
 
+        QuestionController controller = loader.getController();
+        controller.setData(currentStaple.getFlashcardList(), 1);
+
         Scene scene = new Scene(newScene);
+        stage.setScene(scene);
+        stage.setTitle("Quizzl");
+        stage.show();
+    }
+
+    @FXML
+    private void back(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/manageFlashcardsViews/ManageFlashcardsView.fxml");
+        Parent newScene = loader.load();
+
+        Scene scene = new Scene(newScene, 1280, 720);
         stage.setScene(scene);
         stage.setTitle("Quizzl");
         stage.show();

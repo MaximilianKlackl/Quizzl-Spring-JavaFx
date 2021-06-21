@@ -24,20 +24,17 @@ import java.util.TimerTask;
 public class QuestionController
 {
     private int questionAmount;
-    private int totalQuestionAmount;
+    private boolean isRunning = true;
     private int rightQuestions;
     private int repeatedQuestions;
     private int current;
     private boolean isQuestion;
-
-    private boolean repeated;
 
     @FXML private Label statistic;
     @FXML private Label timeStatistic;
     @FXML private Label questionAnswer;
 
     private List<Flashcard> flashcardStaple;
-    private List<Flashcard> wrongCards;
 
     public void setData(List<Flashcard> flashcardStaple, boolean repeated, int questionAmount)
     {
@@ -46,7 +43,6 @@ public class QuestionController
         this.questionAmount = questionAmount;
         this.statistic.setText(this.questionAmount + "/" + 0);
         this.questionAnswer.setText(flashcardStaple.get(current).getQuestion());
-        this.repeated = repeated;
     }
 
     @FXML private void initialize()
@@ -55,8 +51,6 @@ public class QuestionController
         this.repeatedQuestions = 0;
         this.isQuestion = true;
         this.statistic.setText(questionAmount + "/" + rightQuestions);
-
-        this.wrongCards = new LinkedList<>();
 
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -104,10 +98,6 @@ public class QuestionController
         {
             rightQuestions++;
         }
-        else if (repeated)
-        {
-            wrongCards.add(flashcardStaple.get(current));
-        }
 
 
         statistic.setText(questionAmount + "/" + rightQuestions);
@@ -146,6 +136,8 @@ public class QuestionController
 
             Button source = (Button) event.getSource();
 
+            isRunning = false;
+
             // get new FXMLLoader
             FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/learnSessionViews/finishedSession.fxml");
             Parent parent = loader.load();
@@ -170,5 +162,10 @@ public class QuestionController
             stage.setScene(scene);
             stage.setTitle("Quizzl");
             stage.show();
+    }
+
+    private long parseTime(){
+        String timeString = timeStatistic.getText();
+        return Long.parseLong(timeString.split(":")[0]) * 60+ Long.parseLong(timeString.split(":")[1]);
     }
 }

@@ -21,9 +21,12 @@ import java.util.List;
 public class QuestionController
 {
     private int questionAmount;
+    private int totalQuestionAmount;
     private int rightQuestions;
+    private int repeatedQuestions;
     private int current;
     private boolean isQuestion;
+
     private boolean repeated;
 
     @FXML private Label statistic;
@@ -46,6 +49,7 @@ public class QuestionController
     @FXML private void initialize()
     {
         this.rightQuestions = 0;
+        this.repeatedQuestions = 0;
         this.isQuestion = true;
         this.statistic.setText(questionAmount + "/" + rightQuestions);
 
@@ -82,6 +86,7 @@ public class QuestionController
             wrongCards.add(flashcardStaple.get(current));
         }
 
+
         statistic.setText(questionAmount + "/" + rightQuestions);
 
         current++;
@@ -115,14 +120,15 @@ public class QuestionController
     {
         //Checking to see if all cards have been iterated through
 
-        Button source  = (Button)event.getSource();
+
+            Button source = (Button) event.getSource();
 
             // get new FXMLLoader
             FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/learnSessionViews/finishedSession.fxml");
             Parent parent = loader.load();
 
             FinishedLessonController controller = loader.getController();
-            controller.setDate(questionAmount, rightQuestions);
+            controller.setDate(questionAmount, rightQuestions, repeatedQuestions);
 
             Scene scene = new Scene(parent, 600, 400);
             Stage stage = new Stage();

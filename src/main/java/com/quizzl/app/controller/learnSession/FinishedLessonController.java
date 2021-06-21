@@ -9,8 +9,8 @@ public class FinishedLessonController
 {
     @FXML private Label statistics;
 
-    public void setDate(int totalQuestions, int rightQuestions)
+    public void setDate(int totalQuestions, int rightQuestions, int repeatedQuestions)
     {
-        statistics.setText(rightQuestions + " out of " + totalQuestions + " total Questions");
+        statistics.setText(rightQuestions + " out of " + totalQuestions + " total Questions\n" + repeatedQuestions + " repeatedQuestions");
     }
 }

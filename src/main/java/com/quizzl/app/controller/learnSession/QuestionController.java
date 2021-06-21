@@ -2,6 +2,7 @@ package com.quizzl.app.controller.learnSession;
 
 import com.quizzl.app.model.Flashcard;
 import com.quizzl.app.util.SpringFxmlLoader;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,8 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 @Component
 public class QuestionController
@@ -54,6 +57,26 @@ public class QuestionController
         this.statistic.setText(questionAmount + "/" + rightQuestions);
 
         this.wrongCards = new LinkedList<>();
+
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                if(isRunning)
+                {
+                    Platform.runLater(() -> {
+
+                        long seconds = parseTime();
+                        seconds++;
+                        long minutes = (seconds % 3600) / 60;
+                        seconds = seconds % 60;
+
+                        timeStatistic.setText(String.format("%02d:%02d", minutes, seconds));
+                    });
+                }
+                else
+                    timer.cancel();
+            }
+        }, 0,1000);
     }
 
     @FXML private void stop(ActionEvent event) throws IOException

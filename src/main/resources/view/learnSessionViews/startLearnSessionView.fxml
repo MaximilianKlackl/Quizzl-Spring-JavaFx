@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="857.0" prefWidth="931.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.learnSession.StartLearnSessionController">
+   <children>
+      <AnchorPane layoutX="95.0" layoutY="377.0" prefHeight="380.0" prefWidth="800.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="95.0">
+         <children>
+            <Slider fx:id="slider" layoutX="17.0" layoutY="113.0" prefHeight="14.0" prefWidth="84.0" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="113.0" />
+            <Label fx:id="amount" layoutX="101.0" layoutY="105.0" prefHeight="31.0" prefWidth="46.0" AnchorPane.leftAnchor="101.0" AnchorPane.topAnchor="105.0" />
+            <Button layoutX="598.0" layoutY="325.0" mnemonicParsing="false" onAction="#startLearnSession" text="START" textFill="#0026ff" AnchorPane.bottomAnchor="29.399999999999977" AnchorPane.rightAnchor="159.60000000000002" />
+            <ComboBox fx:id="stapleListDropdown" layoutY="-1.0" onAction="#dropDownListener" prefHeight="33.0" prefWidth="808.0" />
+            <Button layoutX="697.0" layoutY="325.0" mnemonicParsing="false" onAction="#back" text="BACK" textFill="RED" />
+            <Label layoutX="4.0" layoutY="66.0" text="Flashcards">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="130.0" layoutY="94.0" text="New Learn Session">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Label>
+      <TextField layoutX="-96.0" layoutY="478.0" prefHeight="45.0" prefWidth="84.0" AnchorPane.leftAnchor="-96.0" AnchorPane.topAnchor="478.0" />
+   </children>
+</AnchorPane>

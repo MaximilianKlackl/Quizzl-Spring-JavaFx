@@ -32,7 +32,7 @@ public class NavBarController {
             }
             case "Start Learn Session": {
 
-                FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/learnSessionViews/learnSessionView.fxml");
+                FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/learnSessionViews/startLearnSessionView.fxml");
                 newScene = loader.load();
                 break;
             }
@@ -44,7 +44,7 @@ public class NavBarController {
         }
 
         if(newScene != null){
-            Scene scene = new Scene(newScene);
+            Scene scene = new Scene(newScene, 1280, 720);
             stage.setScene(scene);
             stage.setTitle("Quizzl");
             stage.show();

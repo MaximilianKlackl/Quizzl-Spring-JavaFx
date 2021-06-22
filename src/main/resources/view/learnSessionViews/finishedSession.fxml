@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="369.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.learnSession.FinishedLessonController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="110.0" layoutY="141.0" stroke="BLACK" strokeType="INSIDE" width="431.0" />
+      <Label layoutX="110.0" layoutY="38.0" text="Finished Session">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="time" layoutX="251.0" layoutY="210.0" text="🕐 time">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="statistics" layoutX="257.0" layoutY="241.0" text="📈 statistics">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

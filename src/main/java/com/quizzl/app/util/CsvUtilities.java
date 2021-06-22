@@ -19,7 +19,6 @@ public class CsvUtilities {
     CsvUtilities(FlashcardStapleService service)
     {
         CsvUtilities.service = service;
-
     }
 
     /**
@@ -62,12 +61,14 @@ public class CsvUtilities {
         try(BufferedReader br = new BufferedReader(new FileReader(path))) {
             while ((line = br.readLine()) != null) {
                 data = line.split(";");
+                
+                if(data.length != 0){
+                    String question = data[0];
+                    String answer = data[1];
 
-                String question = data[0];
-                String answer = data[1];
-
-                Flashcard flashcard = new Flashcard(question, answer, null, importedFlashcardStaple);
-                flashcardList.add(flashcard);
+                    Flashcard flashcard = new Flashcard(question, answer, null, importedFlashcardStaple);
+                    flashcardList.add(flashcard);
+                }
             }
         }
 

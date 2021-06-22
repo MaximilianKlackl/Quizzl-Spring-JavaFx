@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.openTrivia.OpenTriviaEndController">
+    <left>
+        <fx:include source="../NavBar.fxml" />
+    </left>
+    <top>
+        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" prefHeight="80.0" prefWidth="161.0" HBox.hgrow="NEVER">
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                    <children>
+                        <Label text="Quizzl">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets top="20.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="Train your Knowledge">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="20.0" top="20.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+
+            </children>
+        </HBox>
+    </top>
+   <center>
+       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="620.0" prefWidth="266.0" spacing="8.0" HBox.hgrow="NEVER">
+               <children>
+                  <Label layoutX="10.0" layoutY="232.0" prefHeight="27.0" prefWidth="182.0" text="Informations">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="timeLabel" prefHeight="27.0" prefWidth="157.0" text="Label">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="rightAnswerLabel" prefHeight="27.0" prefWidth="202.0" text="Label">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="amountLabel" layoutX="10.0" layoutY="28.0" prefHeight="27.0" prefWidth="297.0" text="Label">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="categoryLabel" prefHeight="27.0" prefWidth="369.0" text="Label">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="difficultyLabel" layoutX="10.0" layoutY="364.0" prefHeight="27.0" prefWidth="369.0" text="Label">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="179.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#playAgainAction" text="Play Again">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Button>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+         </children></HBox>
+   </center>
+</BorderPane>

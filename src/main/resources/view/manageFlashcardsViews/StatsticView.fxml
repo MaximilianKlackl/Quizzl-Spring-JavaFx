@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="150.0" maxWidth="300.0" prefHeight="125.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.manageFlashcards.StatisticController">
+   <children>
+      <VBox alignment="CENTER_LEFT" maxHeight="186.0" prefHeight="186.0" prefWidth="383.0" spacing="5.0">
+         <children>
+            <Label fx:id="stapleNameLabel" text="Staple Name">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="timeSpendLabel" layoutX="281.0" layoutY="200.0" text="timeSpend">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="learnProgressLabel" text="learnProgress" />
+            <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="244.0">
+               <children>
+                  <Button onAction="#close" mnemonicParsing="false" text="Close" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

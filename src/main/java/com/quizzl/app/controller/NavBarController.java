@@ -37,7 +37,7 @@ public class NavBarController {
                 break;
             }
             case "Open Trivia": {
-                FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/openTriviaViews/openTriviaView.fxml");
+                FXMLLoader loader = (FXMLLoader) SpringFxmlLoader.getLoader("/view/openTriviaViews/OpenTriviaSettingsView.fxml");
                 newScene = loader.load();
                 break;
             }

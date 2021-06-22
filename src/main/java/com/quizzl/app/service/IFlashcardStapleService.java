@@ -1,6 +1,6 @@
 package com.quizzl.app.service;
 
-import com.quizzl.app.model.FlashcardStaple;
+import com.quizzl.app.model.dbEntities.FlashcardStaple;
 
 import java.util.List;
 

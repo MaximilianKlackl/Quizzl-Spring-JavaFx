@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane stylesheets="@../../style.css" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.manageFlashcards.ManageFlashcardsController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.manageFlashcards.ManageFlashcardsController">
    <left>
        <fx:include source="../NavBar.fxml" />
    </left>
@@ -18,7 +18,7 @@
                   <Insets right="20.0" />
                </HBox.margin>
                <children>
-                  <Button fx:id="deleteSelectedButton" onAction="#deleteSelection" mnemonicParsing="false" text="Delete Selected" />
+                  <Button fx:id="deleteSelectedButton" mnemonicParsing="false" onAction="#deleteSelection" text="Delete Selected" />
                   <Button layoutX="1184.0" layoutY="10.0" mnemonicParsing="false" text="Delete Staple" />
                </children>
             </HBox>
@@ -78,6 +78,7 @@
                   </HBox>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="80.0" prefWidth="834.0" spacing="20.0" HBox.hgrow="ALWAYS">
                      <children>
+                        <Button layoutX="263.0" layoutY="64.0" mnemonicParsing="false" onAction="#viewStatistics" text="View Statistics" />
                         <Button mnemonicParsing="false" onAction="#createStaple" text="New Staple " />
                         <Button mnemonicParsing="false" onAction="#createCard" text="Add Card" />
                         <Button mnemonicParsing="false" onAction="#importStaple" text="Import Staple" />
@@ -93,15 +94,27 @@
          <children>
             <TableView fx:id="tableView" editable="true" HBox.hgrow="ALWAYS">
               <columns>
-                  <TableColumn editable="false" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" sortable="false" text="id">
-                     <cellValueFactory><PropertyValueFactory property="id" /></cellValueFactory>
+                  <TableColumn maxWidth="75.0" minWidth="75.0" prefWidth="75.0" sortable="false" text="id">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                     </cellValueFactory>
                   </TableColumn>
-                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="426.5999755859375" sortable="false" text="question">
-                     <cellValueFactory><PropertyValueFactory property="question" /></cellValueFactory>
-                  </TableColumn>
-                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="115.0" prefWidth="462.99993896484375" sortable="false" text="answer">
-                     <cellValueFactory><PropertyValueFactory property="answer" /></cellValueFactory>
-                  </TableColumn>
+                 <TableColumn onEditCommit="#updateQuestionColumn" text="question">
+                    <cellFactory>
+                       <TextFieldTableCell fx:factory="forTableColumn" />
+                    </cellFactory>
+                    <cellValueFactory>
+                       <PropertyValueFactory property="question"/>
+                    </cellValueFactory>
+                 </TableColumn>
+                 <TableColumn onEditCommit="#updateAnswerColumn" text="answer">
+                    <cellFactory>
+                       <TextFieldTableCell fx:factory="forTableColumn" />
+                    </cellFactory>
+                    <cellValueFactory>
+                       <PropertyValueFactory property="answer"/>
+                    </cellValueFactory>
+                 </TableColumn>
               </columns>
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

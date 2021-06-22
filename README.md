@@ -21,10 +21,10 @@ Quizzl is a Single User Desktop Application with a local SQLite Database designe
 - [x] implement Entity associations
 - [x] implement Repositories
 - [x] test CRUD Operations
-- [ ] create CSV Utility Class
-    - [ ] Import
-    - [ ] Export
-    - [ ] fix Saving to DB
+- [x] create CSV Utility Class
+    - [x] Import
+    - [x] Export
+    - [x] fix Saving to DB
 - [x] implement Manage Flashcard Page
 - [ ] implement Learn Session Page 
 

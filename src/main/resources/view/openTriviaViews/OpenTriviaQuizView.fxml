@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizzl.app.controller.openTrivia.OpenTriviaQuizController">
+    <left>
+        <fx:include source="../NavBar.fxml" />
+    </left>
+    <top>
+        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" prefHeight="80.0" prefWidth="161.0" HBox.hgrow="NEVER">
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                    <children>
+                        <Label text="Quizzl">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets top="20.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="Train your Knowledge">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="20.0" top="20.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+
+            </children>
+        </HBox>
+    </top>
+   <center>
+       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <GridPane fx:id="gridPane" gridLinesVisible="true" hgap="10.0" vgap="10.0" HBox.hgrow="NEVER">
+                   <columnConstraints>
+                       <ColumnConstraints hgrow="NEVER" minWidth="200.0" prefWidth="400.0" />
+                       <ColumnConstraints hgrow="NEVER" minWidth="100.0" prefWidth="200.0" />
+                   </columnConstraints>
+                   <rowConstraints>
+                       <RowConstraints minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
+                       <RowConstraints minHeight="75.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                   </rowConstraints>
+                   <children>
+                       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1">
+                           <children>
+                               <Label fx:id="timerLabel" text="00:00">
+                                   <font>
+                                       <Font size="18.0" />
+                                   </font>
+                               </Label>
+                               <Label fx:id="rightQuestionsLabel" text="Right: 0">
+                                   <font>
+                                       <Font size="18.0" />
+                                   </font>
+                               </Label>
+                        <Label fx:id="remainingLabel" layoutX="87.0" layoutY="116.0" text="Remaining:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                           </children>
+                       </VBox>
+                       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                               <Button mnemonicParsing="false" text="Stop">
+                                   <font>
+                                       <Font size="13.0" />
+                                   </font>
+                               </Button>
+                           </children>
+                       </HBox>
+                       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="60.0" GridPane.rowIndex="1">
+                           <children>
+                               <Button mnemonicParsing="false" onAction="#trueButtonClick" text="True" textFill="#1ebd38">
+                                   <font>
+                                       <Font size="13.0" />
+                                   </font>
+                               </Button>
+                               <Button mnemonicParsing="false" onAction="#falseButtonClick" text="False" textFill="RED">
+                                   <font>
+                                       <Font size="13.0" />
+                                   </font>
+                               </Button>
+                           </children>
+                       </HBox>
+                       <HBox fx:id="questionHBox" alignment="CENTER" prefHeight="198.0" prefWidth="399.0">
+                     <children>
+                               <Label fx:id="questionLabel" maxWidth="350" text="Question" wrapText="true">
+                                   <font>
+                                       <Font name="System Bold" size="18.0" />
+                                   </font>
+                               </Label>
+                     </children>
+                       </HBox>
+                   </children>
+               </GridPane>
+           </HBox>
+       </VBox>
+   </center>
+</BorderPane>

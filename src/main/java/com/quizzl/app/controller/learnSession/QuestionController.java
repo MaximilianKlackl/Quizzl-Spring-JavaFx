@@ -26,7 +26,6 @@ public class QuestionController
     private int questionAmount;
     private boolean isRunning = true;
     private int rightQuestions;
-    private int repeatedQuestions;
     private int current;
     private boolean isQuestion;
 
@@ -36,7 +35,7 @@ public class QuestionController
 
     private List<Flashcard> flashcardStaple;
 
-    public void setData(List<Flashcard> flashcardStaple, boolean repeated, int questionAmount)
+    public void setData(List<Flashcard> flashcardStaple, int questionAmount)
     {
         this.flashcardStaple = new LinkedList<>(flashcardStaple);
         this.current = 0;
@@ -48,7 +47,6 @@ public class QuestionController
     @FXML private void initialize()
     {
         this.rightQuestions = 0;
-        this.repeatedQuestions = 0;
         this.isQuestion = true;
         this.statistic.setText(questionAmount + "/" + rightQuestions);
 
@@ -143,7 +141,7 @@ public class QuestionController
             Parent parent = loader.load();
 
             FinishedLessonController controller = loader.getController();
-            controller.setDate(questionAmount, rightQuestions, repeatedQuestions);
+            controller.setDate(questionAmount, rightQuestions, timeStatistic.getText());
 
             Scene scene = new Scene(parent, 600, 400);
             Stage stage = new Stage();

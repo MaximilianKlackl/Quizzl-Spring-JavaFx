@@ -8,9 +8,11 @@ import org.springframework.stereotype.Component;
 public class FinishedLessonController
 {
     @FXML private Label statistics;
+    @FXML private Label time;
 
-    public void setDate(int totalQuestions, int rightQuestions, int repeatedQuestions)
+    public void setDate(int totalQuestions, int rightQuestions, String time)
     {
-        statistics.setText(rightQuestions + " out of " + totalQuestions + " total Questions\n" + repeatedQuestions + " repeatedQuestions");
+        this.statistics.setText(rightQuestions + " out of " + totalQuestions + " total Questions\n");
+        this.time.setText("Time: " + time);
     }
 }

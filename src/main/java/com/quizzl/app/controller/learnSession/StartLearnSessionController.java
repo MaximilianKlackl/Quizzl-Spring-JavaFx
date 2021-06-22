@@ -24,7 +24,6 @@ import java.util.List;
 public class StartLearnSessionController
 {
     @FXML private ComboBox<String> stapleListDropdown;
-    @FXML private CheckBox repeatQuestion;
     @FXML private Slider slider;
     @FXML private Label amount;
 
@@ -98,7 +97,7 @@ public class StartLearnSessionController
             newScene = loader.load();
 
             QuestionController controller = loader.getController();
-            controller.setData(currentStaple.getFlashcardList(), repeatQuestion.isSelected(), (int) slider.getValue());
+            controller.setData(currentStaple.getFlashcardList(), (int) slider.getValue());
 
 
             Scene scene = new Scene(newScene);

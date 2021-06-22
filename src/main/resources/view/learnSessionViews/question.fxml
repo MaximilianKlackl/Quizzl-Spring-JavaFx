@@ -14,7 +14,7 @@
       <Button layoutX="96.0" layoutY="486.0" mnemonicParsing="false" onAction="#turn" prefHeight="64.0" prefWidth="181.0" text="Turn" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="394.0" layoutX="96.0" layoutY="73.0" stroke="BLACK" strokeType="INSIDE" width="556.0" />
       <Label fx:id="questionAnswer" layoutX="287.0" layoutY="262.0" text="You were right/wrong" />
-      <Label fx:id="timeStatistic" layoutX="803.0" layoutY="163.0" text="🕐 time">
+      <Label fx:id="timeStatistic" layoutX="803.0" layoutY="163.0" text="00:00">
          <font>
             <Font size="20.0" />
          </font>
